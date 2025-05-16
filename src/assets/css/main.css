@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+@import "./_typography.css";
+@import "./_colors.css";
+@import "./_button.css";
+@import "./_badge.css";
+@import "./_tag.css";
+@import "./_chip.css";

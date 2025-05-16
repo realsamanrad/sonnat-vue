@@ -1,0 +1,7 @@
+@utility s-tag {
+  @apply h-7.5 text-sm px-2;
+}
+
+@utility s-tag-dense {
+  @apply h-6 text-xs;
+}

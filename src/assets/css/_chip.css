@@ -1,0 +1,11 @@
+@utility s-chip-sm {
+  @apply h-5 text-2xs px-2 [&>svg]:ml-1 [&>svg]:-mr-0.5 [&>button]:w-5 [&>button]:-ml-2 [&>svg]:size-3.5;
+}
+
+@utility s-chip-md {
+  @apply h-7 text-xs px-3 [&>svg]:ml-1 [&>svg]:-mr-1.5 [&>button]:w-7 [&>button]:-ml-3 [&>svg]:size-4;
+}
+
+@utility s-chip-lg {
+  @apply h-8 text-sm px-3 [&>svg]:ml-1 [&>svg]:-mr-1 [&>button]:w-8 [&>button]:-ml-3 [&>svg]:size-4;
+}

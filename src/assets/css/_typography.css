@@ -1,0 +1,57 @@
+@font-face {
+  font-family: IRANSansXFaNum;
+  src: local('IRANSansXFaNum'), url('../fonts/IRANSansXFaNum-Regular.woff') format('woff')
+  , url('../fonts/IRANSansXFaNum-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: IRANSansXFaNum;
+  src: local('IRANSansXFaNum Medium'), url('../fonts/IRANSansXFaNum-Medium.woff') format('woff')
+  , url('../fonts/IRANSansXFaNum-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: IRANSansXV;
+  src: local('IRANSansXV'), url('../fonts/IRANSansXV.woff') format('woff')
+  , url('../fonts/IRANSansXV.woff2') format('woff2');
+  font-weight: 400 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: IRANSans;
+  src: url('../fonts/IRANSansWeb.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: IRANSans;
+  src: url('../fonts/IRANSansWeb_Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@theme{
+  --font-iransansxfanum: IRANSansXFaNum, tahoma, "sans-serif";
+  --font-iransansxv: IRANSansXV, tahoma, "sans-serif";
+  --font-iransans: IRANSans, tahoma, "sans-serif";
+  --default-font-family: var(--font-iransansxv);
+
+  --text-2xs: 0.625rem;
+  --text-3xs: 0.5rem;
+}
+
+@layer base {
+  body {
+    direction: rtl;
+  }
+}
+
+@utility middle-fa-digits {
+  font-feature-settings: "ss04";
+}

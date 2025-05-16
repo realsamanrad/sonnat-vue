@@ -1,0 +1,11 @@
+@utility s-badge-sm {
+  @apply size-1;
+}
+
+@utility s-badge-md {
+  @apply size-2;
+}
+
+@utility s-badge-lg {
+  @apply size-3;
+}
