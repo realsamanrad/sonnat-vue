@@ -2,7 +2,12 @@
   <div class="mr-10 mt-10 flex flex-col gap-6">
     <SButton :icon="HeartSVG" color="primary" size="md" variant="inlined" />
     <SBadge label="جدید" />
-    <STag :icon="HeartSVG" color="success" label="محصولات" removable />
+    <div class="flex flex-wrap gap-3">
+      <STag :icon="HeartSVG" color="success" label="محصولات" removable />
+      <STag :icon="HeartSVG" color="success" label="محصولات" removable variant="outlined" />
+      <STag :icon="HeartSVG" color="success" dense label="محصولات" removable />
+      <STag :icon="HeartSVG" color="success" dense label="محصولات" removable variant="outlined" />
+    </div>
     <div class="flex gap-4 flex-wrap mb-12">
       <SChip
         :icon="HeartSVG"

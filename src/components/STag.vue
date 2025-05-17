@@ -1,25 +1,26 @@
 <template>
   <div
-    class="flex justify-center items-center rounded-sm w-fit"
     :class="[_class[variant][color], dense ? 's-tag-dense' : 's-tag']"
+    class="flex justify-center items-center rounded-sm w-fit px-2"
   >
-    <inline-svg class="size-4 ml-1 -mr-1" v-if="icon" :src="icon" />
+    <inline-svg v-if="icon" :src="icon" class="size-4 ml-1 -mr-1" />
     <slot>
       <span v-text="label" />
     </slot>
-    <SButton
+    <button
       v-if="removable"
-      class="!size-4 mr-1 -ml-1"
-      :color
-      variant="inlined"
-      :icon="CloseSVG"
-      @click="$emit('remove')"
-    />
+      class="h-full group cursor-pointer flex justify-center items-center -ml-1 mr-1"
+    >
+      <inline-svg
+        :class="btnStateClass[color]"
+        :src="CloseSVG"
+        class="size-4 rounded-full transition duration-300"
+      />
+    </button>
   </div>
 </template>
 
-<script setup lang="ts">
-import SButton from '@/components/SButton.vue'
+<script lang="ts" setup>
 import CloseSVG from '@/assets/icons/close.svg'
 
 const {
@@ -35,6 +36,15 @@ const {
   icon?: string
   removable?: boolean
 }>()
+
+const btnStateClass = {
+  default: 'group-hover:bg-black/12 group-active:bg-black/24',
+  primary: 'group-hover:bg-primary/12 group-active:bg-primary/24',
+  warning: 'group-hover:bg-warning/12 group-active:bg-warning/24',
+  error: 'group-hover:bg-error/12 group-active:bg-error/24',
+  success: 'group-hover:bg-success/12 group-active:bg-success/24',
+  info: 'group-hover:bg-info/12 group-active:bg-info/24',
+}
 
 const _class = {
   filled: {

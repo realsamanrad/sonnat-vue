@@ -1,5 +1,5 @@
 @utility s-tag {
-  @apply h-7.5 text-sm px-2;
+  @apply h-7.5 text-sm;
 }
 
 @utility s-tag-dense {
