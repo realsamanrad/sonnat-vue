@@ -1,3 +1,7 @@
+<div align="center">
+    <img src="https://raw.githubusercontent.com/realsamanrad/sonnat-vue/docs/logo.svg" height="136">
+</div>
+
 # Sonnat Vue
 
 A Vue 3 component library using Sonnat Design System with TailwindCSS 4, providing elegant and accessible web components.
