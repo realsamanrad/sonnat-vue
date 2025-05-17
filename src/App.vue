@@ -1,5 +1,6 @@
 <template>
   <div class="mr-10 mt-10 flex flex-col gap-6">
+    <SRadio name="test" label="پرداخت در محل" />
     <SButton :icon="HeartSVG" color="primary" size="md" variant="inlined" />
     <SBadge label="جدید" />
     <div class="flex flex-wrap gap-3">
@@ -239,6 +240,7 @@ import STag from '@/components/STag.vue'
 import SChip from '@/components/SChip.vue'
 import HeartSVG from '@/assets/icons/heart.svg'
 import { ref } from 'vue'
+import SRadio from '@/components/SRadio.vue'
 
 const selected = ref(true)
 </script>
