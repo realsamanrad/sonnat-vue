@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://raw.githubusercontent.com/realsamanrad/sonnat-vue/docs/logo.svg" height="136">
+    <img src="docs/logo.svg" height="136">
 </div>
 
 # Sonnat Vue
