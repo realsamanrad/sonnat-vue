@@ -1,8 +1,21 @@
 <template>
   <div class="mr-10 mt-10 flex flex-col gap-6">
-    <SRadio name="test" label="پرداخت در محل" />
+    <SRadio label="پرداخت در محل" name="test" />
     <SButton :icon="HeartSVG" color="primary" size="md" variant="inlined" />
     <SBadge label="جدید" />
+    <div>
+      <SInput
+        :append-icon="HeartSVG"
+        :helper-icon="HeartSVG"
+        :prepend-icon="HeartSVG"
+        class=""
+        helper-text="این یک متن راهنما است"
+        label="نام خانوادگی"
+        name="test"
+        placeholder="متن خود را وارد کنید"
+        required
+      />
+    </div>
     <div class="flex flex-wrap gap-3">
       <STag :icon="HeartSVG" color="success" label="محصولات" removable />
       <STag :icon="HeartSVG" color="success" label="محصولات" removable variant="outlined" />
@@ -241,6 +254,7 @@ import SChip from '@/components/SChip.vue'
 import HeartSVG from '@/assets/icons/heart.svg'
 import { ref } from 'vue'
 import SRadio from '@/components/SRadio.vue'
+import SInput from '@/components/SInput.vue'
 
 const selected = ref(true)
 </script>

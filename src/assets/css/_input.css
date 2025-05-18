@@ -1,0 +1,11 @@
+@utility s-input-sm {
+  @apply px-2 h-6 text-xs;
+}
+
+@utility s-input-md {
+  @apply px-2 h-8 text-xs;
+}
+
+@utility s-input-lg {
+  @apply px-4 h-10 text-base;
+}
