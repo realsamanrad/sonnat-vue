@@ -9,11 +9,15 @@
         :helper-icon="HeartSVG"
         :prepend-icon="HeartSVG"
         class=""
+        rounded
+        v-model="text"
+        size="lg"
         helper-text="این یک متن راهنما است"
         label="نام خانوادگی"
         name="test"
         placeholder="متن خود را وارد کنید"
         required
+        append-text="تستی است"
       />
     </div>
     <div class="flex flex-wrap gap-3">
@@ -257,4 +261,5 @@ import SRadio from '@/components/SRadio.vue'
 import SInput from '@/components/SInput.vue'
 
 const selected = ref(true)
+const text = ref('تست')
 </script>

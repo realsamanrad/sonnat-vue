@@ -1,11 +1,30 @@
 @utility s-input-sm {
-  @apply px-2 h-6 text-xs;
+  &>div {
+    @apply px-2 h-6 text-xs [&_svg]:size-3.5 [&>span]:text-2xs [&>div]:mr-1 [&_svg]:nth-2:mr-1;
+    &:is(.\!rounded-full) {
+      @apply px-2.5 [&>svg]:-mr-1 [&>div]:-ml-1;
+    }
+  }
+  @apply [&>p]:text-2xs [&>p>svg]:size-3.5;
 }
 
 @utility s-input-md {
-  @apply px-2 h-8 text-xs;
+  &>div {
+    @apply px-2 h-8 text-xs [&_svg]:size-4 [&>span]:text-2xs [&>div]:mr-1 [&_svg]:nth-2:mr-1;
+    &:is(.\!rounded-full) {
+      @apply px-4 [&>svg]:-mr-1 [&>div]:-ml-1;
+    }
+  }
+  @apply [&>p]:text-xs [&>p>svg]:size-4;
+
 }
 
 @utility s-input-lg {
-  @apply px-4 h-10 text-base;
+  &>div {
+    @apply px-4 h-10 text-base [&_svg]:size-5 [&>svg]:-mr-2 [&>span]:text-sm [&>div]:-ml-2 [&>div]:mr-2 [&_svg]:nth-2:mr-2;
+    &:is(.\!rounded-full) {
+      @apply px-6 [&>svg]:-mr-3 [&>div]:-ml-3;
+    }
+  }
+  @apply [&>p]:text-xs [&>p>svg]:size-4 ;
 }
