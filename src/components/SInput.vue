@@ -1,6 +1,6 @@
 <template>
   <div :class="sizeClass">
-    <label :for="name" class="text-sm font-medium text-neutral-800 mb-2 block">
+    <label :for="name" class="text-sm font-medium text-black-64 mb-2 block">
       {{ label }}
       <span v-if="required" class="text-error">*</span>
     </label>
@@ -10,7 +10,7 @@
           '!rounded-full': rounded,
         },
       ]"
-      class="rounded-sm border border-neutral-300 flex items-center hover:border-neutral-600 transition duration-240 focus-within:ring focus-within:ring-primary focus-within:ring-inset focus-within:!border-primary has-disabled:pointer-events-none has-disabled:text-neutral-150 text-neutral-400"
+      class="rounded-sm border border-black-24 flex items-center hover:border-black-48 transition duration-240 focus-within:ring focus-within:ring-primary focus-within:ring-inset focus-within:!border-primary has-disabled:pointer-events-none has-disabled:text-black-12 text-black-32"
     >
       <inline-svg v-if="prependIcon" :src="prependIcon" class="shrink-0" />
       <input
@@ -19,18 +19,18 @@
         :name
         :placeholder
         :readonly
-        class="outline-none size-full mr-1 text-neutral-800 disabled:text-black/32"
+        class="outline-none size-full mr-1 text-black-64 disabled:text-black-32"
       />
       <div class="flex items-center">
         <slot name="append">
-          <span class="text-nowrap text-black/32" v-text="appendText" />
+          <span class="text-nowrap text-black-32" v-text="appendText" />
         </slot>
         <inline-svg v-if="appendIcon" :src="appendIcon" class="" />
       </div>
     </div>
     <p class="flex items-center mt-1 px-2">
-      <inline-svg v-if="helperIcon" :src="helperIcon" class="text-black/32 ml-1" />
-      <span v-if="helperText" class="text-black/56" v-text="helperText" />
+      <inline-svg v-if="helperIcon" :src="helperIcon" class="text-black-32 ml-1" />
+      <span v-if="helperText" class="text-black-56" v-text="helperText" />
     </p>
   </div>
 </template>
