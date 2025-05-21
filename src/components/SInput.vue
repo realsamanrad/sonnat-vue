@@ -10,7 +10,7 @@
           '!rounded-full': rounded,
         },
       ]"
-      class="rounded-sm border border-black/24 flex items-center hover:border-black/48 transition duration-240 focus-within:ring focus-within:ring-primary focus-within:ring-inset focus-within:!border-primary has-disabled:pointer-events-none has-disabled:text-neutral-200 text-zinc-400"
+      class="rounded-sm border border-neutral-300 flex items-center hover:border-neutral-600 transition duration-240 focus-within:ring focus-within:ring-primary focus-within:ring-inset focus-within:!border-primary has-disabled:pointer-events-none has-disabled:text-neutral-150 text-neutral-400"
     >
       <inline-svg v-if="prependIcon" :src="prependIcon" class="shrink-0" />
       <input
