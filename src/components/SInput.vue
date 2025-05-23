@@ -5,36 +5,41 @@
       <span v-if="required" class="text-error">*</span>
     </label>
     <div
+      :aria-invalid="showError ? true : undefined"
       :class="[
+        _class[variant],
         {
           '!rounded-full': rounded,
           'bg-black-4': readonly && !floatLabel,
         },
       ]"
-      class="rounded-sm border border-black-24 flex items-center hover:border-black-48 transition duration-240 focus-within:ring focus-within:ring-primary focus-within:ring-inset focus-within:!border-primary has-disabled:pointer-events-none has-disabled:text-black-12 text-black-32 cursor-text relative has-disabled:border-black-12 has-[input:read-only]:pointer-events-none"
+      class="rounded-sm flex items-center transition duration-240 focus-within:ring focus-within:ring-primary focus-within:ring-inset has-disabled:pointer-events-none cursor-text relative has-[input:read-only]:pointer-events-none text-black-32 aria-[invalid]:border-error aria-[invalid]:focus-within:ring-error aria-[invalid]:hover:border-error aria-[invalid]:text-error group peer"
+      @click="inputRef?.focus()"
     >
       <inline-svg v-if="prependIcon" :src="prependIcon" class="shrink-0 z-10" />
       <input
+        ref="inputRef"
         :required
         v-model.trim="model"
         :disabled
         :name
         :type="showPassword ? 'text' : type"
+        @change="showError = false"
         :placeholder
         :readonly
-        class="peer outline-none size-full mr-1 disabled:text-black-32 placeholder-black-32 text-black-87"
+        class="peer outline-none size-full mr-1 transition placeholder-black-32 text-black-87"
         :class="{ 'placeholder-transparent': floatLabel }"
       />
       <label
         v-if="floatLabel"
-        class="absolute peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-1 peer-placeholder-shown:top-1/2 -translate-y-1/2 top-0 transition-all pointer-events-none peer-placeholder-shown:text-black-32 peer-[:not(:placeholder-shown)]:text-black-64 peer-placeholder-shown:[&>span]:text-error-300"
+        class="absolute peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-1 peer-placeholder-shown:top-1/2 -translate-y-1/2 top-0 transition-all pointer-events-none peer-placeholder-shown:text-black-32 peer-[:not(:placeholder-shown)]:text-black-64 peer-placeholder-shown:[&>span]:text-error-300 group-aria-[invalid]:peer-[:not(:placeholder-shown)]:text-error"
       >
         {{ label }}
         <span v-if="required" class="text-error"> * </span>
       </label>
       <div class="flex items-center">
         <slot name="append">
-          <span class="text-nowrap text-black-32" v-text="appendText" />
+          <span class="text-nowrap" v-text="appendText" />
         </slot>
         <inline-svg
           role="button"
@@ -47,17 +52,28 @@
         <inline-svg v-else-if="appendIcon" :src="appendIcon" />
       </div>
     </div>
-    <p class="flex items-center mt-1 px-2">
-      <inline-svg v-if="helperIcon" :src="helperIcon" class="text-black-32 ml-1" />
-      <span v-if="helperText" class="text-black-56" v-text="helperText" />
+    <p class="flex items-center mt-1 px-2 peer-aria-[invalid]:[&>*]:text-error">
+      <inline-svg
+        v-if="helperIcon || showError"
+        :src="showError ? InfoCircleSVG : helperIcon"
+        class="text-black-32 ml-1"
+      />
+      <span
+        v-if="helperText || showError"
+        class="text-black-56"
+        v-text="showError ? error : helperText"
+      />
     </p>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { computed, ref, useTemplateRef } from 'vue'
 import EyeSVG from '@/assets/icons/eye.svg'
 import EyeCrossSVG from '@/assets/icons/eye-cross.svg'
+import InfoCircleSVG from '@/assets/icons/info-circle.svg'
+
+const inputRef = useTemplateRef<HTMLInputElement>('inputRef')
 
 const model = defineModel<string>({ default: '' })
 const {
@@ -69,6 +85,7 @@ const {
   required = false,
   type = 'text',
   floatLabel = false,
+  error = undefined,
 } = defineProps<{
   placeholder?: string
   disabled?: boolean
@@ -86,9 +103,12 @@ const {
   appendText?: string
   floatLabel?: boolean
   type?: 'text' | 'number' | 'email' | 'password'
+  error?: string
 }>()
 
 const showPassword = ref(false)
+
+const showError = ref(!!error)
 
 const sizeClass = computed(() => {
   return {
@@ -97,4 +117,10 @@ const sizeClass = computed(() => {
     lg: 's-input-lg',
   }[size]
 })
+
+const _class = {
+  filled: 'bg-black-4 not-focus-within:hover:bg-black-8 focus-within:ring-2',
+  outlined:
+    'border border-black-24 not-focus-within:hover:border-black-48 focus-within:border-primary has-disabled:border-black-12 has-disabled:text-black-12 [&>input]:disabled:text-black-32',
+}
 </script>

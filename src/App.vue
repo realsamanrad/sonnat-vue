@@ -11,15 +11,16 @@
         class=""
         rounded
         v-model="text"
-        size="lg"
-        readonly
         float-label
+        size="lg"
         helper-text="این یک متن راهنما است"
         label="نام خانوادگی"
-        name="test"
+        variant="outlined"
+        name="test2"
         placeholder="نام خانوادگی"
         required
         append-text="تستی است"
+        error="لطفا به صورت صحیح وارد کنید."
       />
       <SInput
         :append-icon="HeartSVG"
