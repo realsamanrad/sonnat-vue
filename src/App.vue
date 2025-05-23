@@ -3,7 +3,7 @@
     <SRadio label="پرداخت در محل" name="test" />
     <SButton :icon="HeartSVG" color="primary" size="md" variant="inlined" />
     <SBadge label="جدید" />
-    <div>
+    <div class="flex flex-col gap-4">
       <SInput
         :append-icon="HeartSVG"
         :helper-icon="HeartSVG"
@@ -12,10 +12,27 @@
         rounded
         v-model="text"
         size="lg"
+        readonly
+        float-label
         helper-text="این یک متن راهنما است"
         label="نام خانوادگی"
         name="test"
-        placeholder="متن خود را وارد کنید"
+        placeholder="نام خانوادگی"
+        required
+        append-text="تستی است"
+      />
+      <SInput
+        :append-icon="HeartSVG"
+        :helper-icon="HeartSVG"
+        :prepend-icon="HeartSVG"
+        class=""
+        rounded
+        v-model="text"
+        size="sm"
+        helper-text="این یک متن راهنما است"
+        label="نام خانوادگی"
+        name="test"
+        placeholder="نام خانوادگی"
         required
         append-text="تستی است"
       />
@@ -261,5 +278,5 @@ import SRadio from '@/components/SRadio.vue'
 import SInput from '@/components/SInput.vue'
 
 const selected = ref(true)
-const text = ref('تست')
+const text = ref('نام')
 </script>
