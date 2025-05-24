@@ -1,39 +1,45 @@
 @utility s-input-sm {
-  &>div {
+  & > div {
     @apply has-[:first-child>svg]:[&>label]:peer-[:not(:placeholder-shown)]:right-2.5 has-[>svg:first-child]:[&>label]:peer-placeholder-shown:right-6;
     @apply [&>label]:peer-[:not(:placeholder-shown)]:text-3xs has-[>input:first-child]:[&>label]:peer-placeholder-shown:mr-1;
 
     @apply px-2 h-6 text-xs [&_svg]:size-3.5 [&>span]:text-2xs [&>div]:mr-1 [&_svg]:nth-2:mr-1;
+
     &:is(.\!rounded-full) {
       @apply px-2.5 [&>svg]:-mr-1 [&>div]:-ml-1;
     }
   }
-  @apply [&>p]:text-2xs [&>p>svg]:size-3.5;
+
+  @apply [&>p>small]:text-2xs [&>p>svg]:size-3.5;
 }
 
 @utility s-input-md {
-  &>div {
+  & > div {
     @apply has-[:first-child>svg]:[&>label]:peer-[:not(:placeholder-shown)]:right-4 has-[>svg:first-child]:[&>label]:peer-placeholder-shown:right-9;
     @apply [&>label]:peer-[:not(:placeholder-shown)]:text-2xs has-[>input:first-child]:[&>label]:peer-placeholder-shown:mr-1;
 
     @apply px-2 h-8 text-xs [&_svg]:size-4 [&>span]:text-2xs [&>div]:mr-1 [&_svg]:nth-2:mr-1;
+
     &:is(.\!rounded-full) {
       @apply px-4 [&>svg]:-mr-1 [&>div]:-ml-1;
     }
   }
-  @apply [&>p]:text-xs [&>p>svg]:size-4;
+
+  @apply [&>p>small]:text-xs [&>p>svg]:size-4;
 
 }
 
 @utility s-input-lg {
-  &>div {
+  & > div {
     @apply has-[:first-child>svg]:[&>label]:peer-[:not(:placeholder-shown)]:right-4 has-[>svg:first-child]:[&>label]:peer-placeholder-shown:right-9;
     @apply [&>label]:peer-[:not(:placeholder-shown)]:text-xs has-[>input:first-child]:[&>label]:peer-placeholder-shown:mr-1;
 
     @apply px-4 h-10 text-base [&_svg]:size-5 [&>svg]:-mr-2 [&>span]:text-sm [&>div]:-ml-2 [&>div]:mr-2 [&_svg]:nth-2:mr-2;
+
     &:is(.\!rounded-full) {
       @apply px-6 [&>svg]:-mr-3 [&>div]:-ml-3;
     }
   }
-  @apply [&>p]:text-xs [&>p>svg]:size-4 ;
+
+  @apply [&>p>small]:text-xs [&>p>svg]:size-4 ;
 }

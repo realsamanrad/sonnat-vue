@@ -19,16 +19,16 @@
       <inline-svg v-if="prependIcon" :src="prependIcon" class="shrink-0 z-10" />
       <input
         ref="inputRef"
-        :required
         v-model.trim="model"
+        :class="{ 'placeholder-transparent': floatLabel }"
         :disabled
         :name
-        :type="showPassword ? 'text' : type"
-        @change="showError = false"
         :placeholder
         :readonly
+        :required
+        :type="showPassword ? 'text' : type"
         class="peer outline-none size-full mr-1 transition placeholder-black-32 text-black-87"
-        :class="{ 'placeholder-transparent': floatLabel }"
+        @change="showError = false"
       />
       <label
         v-if="floatLabel"
@@ -42,11 +42,11 @@
           <span class="text-nowrap" v-text="appendText" />
         </slot>
         <inline-svg
-          role="button"
-          class="cursor-pointer hover:text-black-48 transition duration-240"
-          :class="{ 'text-primary': showPassword }"
           v-if="type === 'password'"
+          :class="{ 'text-primary': showPassword }"
           :src="showPassword ? EyeSVG : EyeCrossSVG"
+          class="cursor-pointer hover:text-black-48 transition duration-240"
+          role="button"
           @click="showPassword = !showPassword"
         />
         <inline-svg v-else-if="appendIcon" :src="appendIcon" />
@@ -58,7 +58,7 @@
         :src="showError ? InfoCircleSVG : helperIcon"
         class="text-black-32 ml-1"
       />
-      <span
+      <small
         v-if="helperText || showError"
         class="text-black-56"
         v-text="showError ? error : helperText"
