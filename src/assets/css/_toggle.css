@@ -1,0 +1,11 @@
+@utility .s-toggle-sm {
+  @apply [&>div]:w-6 h-3.5;
+}
+
+@utility .s-toggle-md {
+  @apply [&>div]:w-8 h-4.5;
+}
+
+@utility .s-toggle-lg {
+  @apply [&>div]:w-10.5 h-6;
+}
