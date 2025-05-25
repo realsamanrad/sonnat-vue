@@ -1,24 +1,24 @@
 @utility s-btn-sm {
-  @apply h-6 px-3 text-xs min-w-8 [&_svg]:size-3.5 [&_svg]:last:mr-1 [&_svg]:last:-ml-1 [&_svg]:first:ml-1 [&_svg]:first:-mr-1 [&_svg]:only:mx-0;
+  @apply h-6 px-3 text-xs min-w-8 [&_svg]:size-3.5 [&_svg]:last:mr-1 [&_svg]:last:-ml-1 [&_svg]:first:ml-1 has-[>svg:only-of-type]:not-[:has(>span)]:[&>svg]:-mr-1 has-[>svg:only-of-type]:not-[:has(>span)]:[&>svg]:mx-0;
 
-  &:has(svg:only-child) {
+  &:has(>svg:only-of-type):not(:has(>span)) {
     @apply size-6 px-0 min-w-0 [&_svg]:size-4;
   }
 }
 
 @utility s-btn-md {
-  @apply h-8 px-3 text-sm min-w-16 [&_svg]:size-4 [&_svg]:last:mr-1 [&_svg]:last:-ml-1 [&_svg]:first:ml-1 [&_svg]:first:-mr-1 [&_svg]:only:mx-0;
+  @apply h-8 px-3 text-sm min-w-16 [&_svg]:size-4 [&_svg]:last:mr-1 [&_svg]:last:-ml-1 [&>svg]:first-of-type:ml-1 has-[>svg:only-of-type]:not-[:has(>span)]:[&>svg]:-mr-1 has-[>svg:only-of-type]:not-[:has(>span)]:[&>svg]:mx-0;
 
-  &:has(svg:only-child) {
+  &:has(>svg:only-of-type):not(:has(>span)) {
     @apply size-8 px-0 min-w-0;
   }
 }
 
 
 @utility s-btn-lg {
-  @apply text-base [&_svg]:last:mr-3 [&_svg]:last:-ml-1 [&_svg]:first:ml-2 [&_svg]:first:-mr-1 h-10 px-4 min-w-24 [&_svg]:size-5 [&_svg]:only:mx-0;
+  @apply text-base [&_svg]:last:mr-3 [&_svg]:last:-ml-1 has-[>svg:only-of-type]:not-[:has(>span)]:[&>svg]:ml-2 [&>svg]:first-of-type:-mr-1 h-10 px-4 min-w-24 [&_svg]:size-5 has-[>svg:only-of-type]:not-[:has(>span)]:[&>svg]:mx-0;
 
-  &:has(svg:only-child) {
+  &:has(>svg:only-of-type):not(:has(>span)) {
     @apply size-10 px-0 min-w-0;
   }
 }

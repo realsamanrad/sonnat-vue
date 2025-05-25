@@ -5,7 +5,14 @@
       <STooltip label="این یک متن راهنما است" placement="top" />
     </div>
     <SRadio label="پرداخت در محل" name="test" />
-    <SButton :icon="HeartSVG" color="primary" size="md" variant="inlined" />
+    <SButton
+      :icon="HeartSVG"
+      label="سلامتی"
+      color="primary"
+      size="md"
+      variant="filled"
+      tooltip="سلامتی"
+    />
     <SBadge label="جدید" />
     <div class="flex flex-wrap gap-4">
       <SToggle name="family" />

@@ -3,6 +3,7 @@
     :class="[{ '!rounded-full': rounded || iconOnly }, sizeClass, _class[variant][color]]"
     class="rounded-sm font-medium transition cursor-pointer flex items-center justify-center duration-300 disabled:pointer-events-none w-fit"
   >
+    <STooltip v-if="tooltip" :label="tooltip" />
     <inline-svg v-if="iconOnly" :src="icon" />
     <template v-else>
       <inline-svg v-if="icon" :src="icon" />
@@ -16,6 +17,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import STooltip from '@/components/STooltip.vue'
 const {
   variant = 'filled',
   color = 'default',
@@ -31,6 +33,7 @@ const {
   trailingIcon?: string
   icon?: string
   size?: 'sm' | 'md' | 'lg'
+  tooltip?: string
 }>()
 
 const sizeClass = computed(() => {

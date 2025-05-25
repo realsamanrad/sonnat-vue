@@ -1,27 +1,30 @@
 <template>
-  <div
-    v-show="open"
-    ref="floatingRef"
-    :style="floatingStyles"
-    class="bg-black-77 text-white px-3 py-2 rounded-sm text-xs absolute"
-  >
-    <span
-      ref="arrowRef"
-      :class="{
-        'rounded-br-xs': arrowPosition === 'bottom',
-        'rounded-tr-xs': arrowPosition === 'right',
-        'rounded-bl-xs': arrowPosition === 'left',
-        'rounded-tl-xs': arrowPosition === 'top',
-      }"
-      :style="{
-        left: middlewareData.arrow?.x != null ? `${middlewareData.arrow.x}px` : '',
-        top: middlewareData.arrow?.y != null ? `${middlewareData.arrow.y}px` : '',
-        [arrowPosition]: '-4px',
-      }"
-      class="size-2 absolute rotate-45 bg-black-77"
-    />
-    <slot>{{ label }}</slot>
-  </div>
+  <Transition name="fade">
+    <div
+      v-show="open"
+      ref="floatingRef"
+      :style="floatingStyles"
+      class="bg-black-77 text-white px-3 py-2 rounded-sm text-xs z-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.12)]"
+    >
+      <span
+        v-if="tailed"
+        ref="arrowRef"
+        :class="{
+          'rounded-br-xs': arrowPosition === 'bottom',
+          'rounded-tr-xs': arrowPosition === 'right',
+          'rounded-bl-xs': arrowPosition === 'left',
+          'rounded-tl-xs': arrowPosition === 'top',
+        }"
+        :style="{
+          left: middlewareData.arrow?.x != null ? `${middlewareData.arrow.x}px` : '',
+          top: middlewareData.arrow?.y != null ? `${middlewareData.arrow.y}px` : '',
+          [arrowPosition]: '-6px',
+        }"
+        class="size-3 absolute rotate-45 bg-black-77"
+      />
+      <slot>{{ label }}</slot>
+    </div>
+  </Transition>
 </template>
 
 <script lang="ts" setup>
@@ -37,25 +40,26 @@ import {
 } from '@floating-ui/vue'
 import { useParentElement, useEventListener } from '@vueuse/core'
 
-const { placement = 'top' } = defineProps<{
+const { placement = 'top', tailed = true } = defineProps<{
   label?: string
   placement?: UseFloatingOptions['placement']
+  tailed?: boolean
 }>()
 
-const reference = useParentElement()
+const parentRef = useParentElement()
 const floatingRef = useTemplateRef<HTMLDivElement>('floatingRef')
 const arrowRef = useTemplateRef<HTMLSpanElement>('arrowRef')
 
 const open = ref(false)
 
-useEventListener(reference, 'mouseenter', () => (open.value = true))
-useEventListener(reference, 'mouseleave', () => (open.value = false))
+useEventListener(parentRef, 'mouseenter', () => (open.value = true))
+useEventListener(parentRef, 'mouseleave', () => (open.value = false))
 
 const {
   floatingStyles,
   middlewareData,
   placement: actualPlacement,
-} = useFloating(reference, floatingRef, {
+} = useFloating(parentRef, floatingRef, {
   placement,
   middleware: [offset(10), flip(), shift(), arrow({ element: arrowRef })],
   whileElementsMounted: autoUpdate,
