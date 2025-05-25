@@ -1,0 +1,11 @@
+@utility s-select-sm {
+  @apply [&>div]:h-6;
+}
+
+@utility s-select-md {
+  @apply [&>div]:first:h-8;
+}
+
+@utility s-select-lg {
+  @apply [&>div]:h-10;
+}

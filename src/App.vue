@@ -1,5 +1,8 @@
 <template>
-  <div class="mr-10 mt-10 flex flex-col gap-6">
+  <div class="mx-10 mt-10 flex flex-col gap-6">
+    <div class="flex gap-4">
+      <SSelect />
+    </div>
     <div class="border p-2 w-fit mx-auto">
       <span>hover me</span>
       <STooltip label="این یک متن راهنما است" placement="top" />
@@ -293,6 +296,7 @@ import SRadio from '@/components/SRadio.vue'
 import SInput from '@/components/SInput.vue'
 import SToggle from '@/components/SToggle.vue'
 import STooltip from '@/components/STooltip.vue'
+import SSelect from '@/components/SSelect.vue'
 
 const selected = ref(true)
 const text = ref('نام')
