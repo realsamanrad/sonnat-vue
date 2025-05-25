@@ -3,39 +3,42 @@
     <SRadio label="پرداخت در محل" name="test" />
     <SButton :icon="HeartSVG" color="primary" size="md" variant="inlined" />
     <SBadge label="جدید" />
+    <div class="flex flex-wrap gap-4">
+      <SToggle name="family" />
+    </div>
     <div class="flex flex-col gap-4">
       <SInput
+        v-model="text"
         :append-icon="HeartSVG"
         :helper-icon="HeartSVG"
         :prepend-icon="HeartSVG"
+        append-text="تستی است"
         class=""
-        rounded
-        v-model="text"
+        error="لطفا به صورت صحیح وارد کنید."
         float-label
-        size="lg"
         helper-text="این یک متن راهنما است"
         label="نام خانوادگی"
-        variant="outlined"
         name="test2"
         placeholder="نام خانوادگی"
         required
-        append-text="تستی است"
-        error="لطفا به صورت صحیح وارد کنید."
+        rounded
+        size="lg"
+        variant="outlined"
       />
       <SInput
+        v-model="text"
         :append-icon="HeartSVG"
         :helper-icon="HeartSVG"
         :prepend-icon="HeartSVG"
+        append-text="تستی است"
         class=""
-        rounded
-        v-model="text"
-        size="sm"
         helper-text="این یک متن راهنما است"
         label="نام خانوادگی"
         name="test"
         placeholder="نام خانوادگی"
         required
-        append-text="تستی است"
+        rounded
+        size="sm"
       />
     </div>
     <div class="flex flex-wrap gap-3">
@@ -277,6 +280,7 @@ import HeartSVG from '@/assets/icons/heart.svg'
 import { ref } from 'vue'
 import SRadio from '@/components/SRadio.vue'
 import SInput from '@/components/SInput.vue'
+import SToggle from '@/components/SToggle.vue'
 
 const selected = ref(true)
 const text = ref('نام')
