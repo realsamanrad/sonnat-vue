@@ -1,5 +1,9 @@
 <template>
   <div class="mr-10 mt-10 flex flex-col gap-6">
+    <div class="border p-2 w-fit mx-auto">
+      <span>hover me</span>
+      <STooltip label="این یک متن راهنما است" placement="top" />
+    </div>
     <SRadio label="پرداخت در محل" name="test" />
     <SButton :icon="HeartSVG" color="primary" size="md" variant="inlined" />
     <SBadge label="جدید" />
@@ -281,6 +285,7 @@ import { ref } from 'vue'
 import SRadio from '@/components/SRadio.vue'
 import SInput from '@/components/SInput.vue'
 import SToggle from '@/components/SToggle.vue'
+import STooltip from '@/components/STooltip.vue'
 
 const selected = ref(true)
 const text = ref('نام')
