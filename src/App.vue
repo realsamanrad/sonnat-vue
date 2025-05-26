@@ -1,7 +1,7 @@
 <template>
   <div class="mx-10 mt-10 flex flex-col gap-6">
     <div class="flex gap-4">
-      <SSelect />
+      <SSelect :options />
     </div>
     <div class="border p-2 w-fit mx-auto">
       <span>hover me</span>
@@ -10,11 +10,11 @@
     <SRadio label="پرداخت در محل" name="test" />
     <SButton
       :icon="HeartSVG"
-      label="سلامتی"
       color="primary"
+      label="سلامتی"
       size="md"
-      variant="filled"
       tooltip="سلامتی"
+      variant="filled"
     />
     <SBadge label="جدید" />
     <div class="flex flex-wrap gap-4">
@@ -300,4 +300,16 @@ import SSelect from '@/components/SSelect.vue'
 
 const selected = ref(true)
 const text = ref('نام')
+
+const options = [
+  { label: '250 گرم', value: 'option1' },
+  { label: '300 گرم', value: 'option2' },
+  { label: '500 گرم', value: 'option3' },
+  { label: '750 گرم', value: 'option4', disabled: true },
+  { label: '1 کیلوگرم', value: 'option5' },
+  { label: '2 کیلوگرم', value: 'option6' },
+  { label: '3 کیلوگرم', value: 'option7' },
+  { label: '4 کیلوگرم', value: 'option8' },
+  { label: '5 کیلوگرم', value: 'option9' },
+]
 </script>
