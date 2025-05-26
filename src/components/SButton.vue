@@ -1,7 +1,7 @@
 <template>
   <button
     :class="[{ '!rounded-full': rounded || iconOnly }, sizeClass, _class[variant][color]]"
-    class="rounded-sm font-medium transition cursor-pointer flex items-center justify-center duration-300 disabled:pointer-events-none w-fit"
+    class="rounded-sm font-medium transition cursor-pointer flex items-center justify-center duration-300 disabled:pointer-events-none w-fit focus-visible:ring-2 ring-primary focus-visible:outline-0 ring-offset-1"
   >
     <STooltip v-if="tooltip" :label="tooltip" />
     <inline-svg v-if="iconOnly" :src="icon" />

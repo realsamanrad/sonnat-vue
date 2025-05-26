@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, useTemplateRef } from 'vue'
+import { computed, ref, useTemplateRef, watchEffect } from 'vue'
 import {
   useFloating,
   offset,
@@ -38,7 +38,7 @@ import {
   autoUpdate,
   type UseFloatingOptions,
 } from '@floating-ui/vue'
-import { useParentElement, useEventListener } from '@vueuse/core'
+import { useParentElement, useElementHover, useFocusWithin } from '@vueuse/core'
 
 const { placement = 'top', tailed = true } = defineProps<{
   label?: string
@@ -52,8 +52,12 @@ const arrowRef = useTemplateRef<HTMLSpanElement>('arrowRef')
 
 const open = ref(false)
 
-useEventListener(parentRef, 'mouseenter', () => (open.value = true))
-useEventListener(parentRef, 'mouseleave', () => (open.value = false))
+const isHovered = useElementHover(parentRef)
+const { focused } = useFocusWithin(parentRef)
+
+watchEffect(() => {
+  open.value = isHovered.value || focused.value
+})
 
 const {
   floatingStyles,

@@ -7,7 +7,7 @@
       <span>hover me</span>
       <STooltip label="این یک متن راهنما است" placement="top" />
     </div>
-    <SRadio label="پرداخت در محل" name="test" />
+    <SRadio label="پرداخت در محل" />
     <SButton
       :icon="HeartSVG"
       color="primary"
@@ -18,7 +18,7 @@
     />
     <SBadge label="جدید" />
     <div class="flex flex-wrap gap-4">
-      <SToggle name="family" />
+      <SToggle />
     </div>
     <div class="flex flex-col gap-4">
       <SInput
