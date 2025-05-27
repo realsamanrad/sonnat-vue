@@ -12,7 +12,7 @@
     ]"
     :tabindex="disabled || behavior === 'removable' ? -1 : 0"
     class="rounded-xs flex items-center justify-center w-fit select-none transition duration-300 focus-visible:outline-2 outline-offset-1 outline-primary"
-    role="button"
+    :role="behavior !== 'removable' ? 'button' : undefined"
     @click="handleClick"
   >
     <inline-svg v-if="icon" :src="icon" />
@@ -23,7 +23,7 @@
       v-if="behavior === 'removable'"
       :class="btnStateClass[variant]"
       :tabindex="disabled ? -1 : 0"
-      class="h-full group cursor-pointer flex justify-center items-center"
+      class="h-full group cursor-pointer flex justify-center items-center focus-visible:outline-0"
       @click="$emit('remove')"
     >
       <inline-svg :src="CloseSVG" class="size-4 rounded-full transition duration-300" />
@@ -66,8 +66,9 @@ const sizeClass = computed(() => {
 })
 
 const btnStateClass = {
-  filled: 'hover:[&>svg]:bg-black/12 active:[&>svg]:bg-black/24',
-  outlined: 'hover:[&>svg]:bg-primary/12 active:[&>svg]:bg-primary/24',
+  filled: 'hover:[&>svg]:bg-black/12 active:[&>svg]:bg-black/24 focus-visible:[&>svg]:bg-black/12',
+  outlined:
+    'hover:[&>svg]:bg-primary/12 active:[&>svg]:bg-primary/24 focus-visible:[&>svg]:bg-primary/12',
 }
 
 const interactiveClass = {

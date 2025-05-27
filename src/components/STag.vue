@@ -10,7 +10,7 @@
     <button
       v-if="removable"
       :class="btnStateClass[color]"
-      class="h-full group/remove cursor-pointer flex justify-center items-center -ml-1 mr-1"
+      class="h-full group/remove cursor-pointer flex justify-center items-center -ml-1 mr-1 focus-visible:outline-0"
       @click="$emit('remove')"
     >
       <inline-svg :src="CloseSVG" class="size-4 rounded-full transition duration-300" />
@@ -36,12 +36,15 @@ const {
 }>()
 
 const btnStateClass = {
-  default: 'hover:[&>svg]:bg-black/12 active:[&>svg]:bg-black/24',
-  primary: 'hover:[&>svg]:bg-primary/12 active:[&>svg]:bg-primary/24',
-  warning: 'hover:[&>svg]:bg-warning/12 active:[&>svg]:bg-warning/24',
-  error: 'hover:[&>svg]:bg-error/12 active:[&>svg]:bg-error/24',
-  success: 'hover:[&>svg]:bg-success/12 active:[&>svg]:bg-success/24',
-  info: 'hover:[&>svg]:bg-info/12 active:[&>svg]:bg-info/24',
+  default: 'hover:[&>svg]:bg-black/12 active:[&>svg]:bg-black/24 focus-visible:[&>svg]:bg-black/12',
+  primary:
+    'hover:[&>svg]:bg-primary/12 active:[&>svg]:bg-primary/24 focus-visible:[&>svg]:bg-primary/12',
+  warning:
+    'hover:[&>svg]:bg-warning/12 active:[&>svg]:bg-warning/24 focus-visible:[&>svg]:bg-warning/12',
+  error: 'hover:[&>svg]:bg-error/12 active:[&>svg]:bg-error/24 focus-visible:[&>svg]:bg-error/12',
+  success:
+    'hover:[&>svg]:bg-success/12 active:[&>svg]:bg-success/24 focus-visible:[&>svg]:bg-success/12',
+  info: 'hover:[&>svg]:bg-info/12 active:[&>svg]:bg-info/24 focus-visible:[&>svg]:bg-info/12',
 }
 
 const _class = {
