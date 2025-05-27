@@ -24,6 +24,7 @@
       >
         <li v-for="(item, i) in model" :key="i" class="my-0.5">
           <SChip
+            :disabled
             :label="options.find((option) => option.value === item)?.label"
             behavior="removable"
             class="in-[.s-select-sm]:s-chip-sm in-[.s-select-lg]:s-chip-lg"

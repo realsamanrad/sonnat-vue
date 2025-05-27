@@ -10,7 +10,8 @@
         'pointer-events-none': disabled,
       },
     ]"
-    class="rounded-xs flex items-center justify-center w-fit select-none transition duration-300"
+    :tabindex="disabled || behavior === 'removable' ? -1 : 0"
+    class="rounded-xs flex items-center justify-center w-fit select-none transition duration-300 focus-visible:outline-2 outline-offset-1 outline-primary"
     role="button"
     @click="handleClick"
   >
@@ -21,6 +22,7 @@
     <button
       v-if="behavior === 'removable'"
       :class="btnStateClass[variant]"
+      :tabindex="disabled ? -1 : 0"
       class="h-full group cursor-pointer flex justify-center items-center"
       @click="$emit('remove')"
     >
