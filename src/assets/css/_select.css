@@ -11,7 +11,7 @@
     }
   }
 
-  ul {
+  & > div:last-child ul {
     @apply text-xs;
 
     li {
@@ -35,7 +35,7 @@
     }
   }
 
-  ul {
+  & > div:last-child ul {
     @apply text-xs;
 
     li {
@@ -48,7 +48,7 @@
 
 @utility s-select-lg {
   & > div:first-child {
-    @apply h-10 text-base px-4;
+    @apply min-h-10 text-base px-4;
 
     & > div {
       @apply mr-2 -ml-2 [&>svg]:size-6 [&>span]:text-sm gap-2;
@@ -59,7 +59,7 @@
     }
   }
 
-  ul {
+  & > div:last-child ul {
     @apply text-sm;
 
     li {

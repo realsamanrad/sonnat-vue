@@ -10,7 +10,7 @@
         'pointer-events-none': disabled,
       },
     ]"
-    class="rounded-sm flex items-center justify-center w-fit select-none transition duration-300"
+    class="rounded-xs flex items-center justify-center w-fit select-none transition duration-300"
     role="button"
     @click="handleClick"
   >
@@ -20,13 +20,11 @@
     </slot>
     <button
       v-if="behavior === 'removable'"
+      :class="btnStateClass[variant]"
       class="h-full group cursor-pointer flex justify-center items-center"
+      @click="$emit('remove')"
     >
-      <inline-svg
-        :class="btnStateClass[variant]"
-        :src="CloseSVG"
-        class="size-4 rounded-full transition duration-300"
-      />
+      <inline-svg :src="CloseSVG" class="size-4 rounded-full transition duration-300" />
     </button>
   </div>
 </template>
@@ -66,8 +64,8 @@ const sizeClass = computed(() => {
 })
 
 const btnStateClass = {
-  filled: 'group-hover:bg-black/12 group-active:bg-black/24',
-  outlined: 'group-hover:bg-primary/12 group-active:bg-primary/24',
+  filled: 'hover:[&>svg]:bg-black/12 active:[&>svg]:bg-black/24',
+  outlined: 'hover:[&>svg]:bg-primary/12 active:[&>svg]:bg-primary/24',
 }
 
 const interactiveClass = {

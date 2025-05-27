@@ -7,7 +7,7 @@
         helper-text="این یک متن راهنما است"
         multiple
         searchable
-        size="lg"
+        size="sm"
       />
     </div>
     <div class="border p-2 w-fit mx-auto">

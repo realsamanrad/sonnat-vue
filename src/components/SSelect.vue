@@ -7,18 +7,33 @@
       :aria-expanded="open"
       :aria-invalid="error ? true : undefined"
       :class="{
-        'text-black-87': model,
+        'text-black-87': model?.length,
         '!rounded-full': rounded,
       }"
       :tabindex="disabled ? -1 : 0"
       aria-haspopup="listbox"
-      class="flex items-center justify-between rounded-sm border border-black-24 cursor-pointer hover:border-black-48 transition duration-240 text-black-32 focus-visible:ring focus-visible:border-primary focus-visible:ring-primary focus-visible:outline-0 focus-visible:ring-inset aria-disabled:pointer-events-none aria-disabled:border-black-12 group aria-disabled:text-black-32 aria-invalid:border-error"
+      class="flex items-center justify-between rounded-sm border border-black-24 cursor-pointer hover:border-black-48 transition duration-240 text-black-32 focus-visible:ring focus-visible:border-primary focus-visible:ring-primary focus-visible:outline-0 focus-visible:ring-inset aria-disabled:pointer-events-none aria-disabled:border-black-12 group aria-disabled:text-black-32 aria-invalid:border-error group"
       role="button"
-      @click="open = !open"
+      @click.self="open = !open"
       @keydown.enter.space.prevent="open = !open"
       @keydown.esc="open = false"
     >
-      {{ options.find((option) => option.value === model)?.label ?? placeholder }}
+      <ul
+        v-if="multiple && Array.isArray(model) && model.length"
+        class="flex items-center gap-1 flex-wrap"
+      >
+        <li v-for="(item, i) in model" :key="i" class="my-0.5">
+          <SChip
+            :label="options.find((option) => option.value === item)?.label"
+            behavior="removable"
+            class="in-[.s-select-sm]:s-chip-sm in-[.s-select-lg]:s-chip-lg"
+            @remove="removeOption(item)"
+          />
+        </li>
+      </ul>
+      <template v-else>
+        {{ options.find((option) => option.value === model)?.label ?? placeholder }}
+      </template>
       <div class="flex items-center group-aria-invalid:[&>*]:text-error">
         <slot name="append">
           <span v-if="appendText" class="text-black-32" v-text="appendText" />
@@ -58,7 +73,7 @@
             :aria-disabled="option.disabled"
             :aria-selected="model === option.value"
             :class="{
-              'text-primary': model === option.value,
+              'text-primary': isSelected(option),
             }"
             :data-index="i"
             :data-value="option.value"
@@ -76,7 +91,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, useId, useTemplateRef, watchEffect } from 'vue'
+import { computed, ref, useId, useTemplateRef, watch, watchEffect } from 'vue'
 import ChevronDownSVG from '@/assets/icons/chevron-down.svg'
 import {
   autoUpdate,
@@ -90,6 +105,14 @@ import { onClickOutside } from '@vueuse/core'
 import SInput from '@/components/SInput.vue'
 import MagnifierSVG from '@/assets/icons/magnifier.svg'
 import CheckSVG from '@/assets/icons/check.svg'
+import STag from '@/components/STag.vue'
+import SChip from '@/components/SChip.vue'
+
+interface Option {
+  label: string
+  value: string
+  disabled?: boolean
+}
 
 const {
   size = 'md',
@@ -111,11 +134,7 @@ const {
   error?: string
   searchable?: boolean
   multiple?: boolean
-  options: {
-    label: string
-    value: string
-    disabled?: boolean
-  }[]
+  options: Option[]
 }>()
 
 const open = ref(false)
@@ -129,23 +148,60 @@ const floatingRef = useTemplateRef<HTMLDivElement>('floatingRef')
 const model = defineModel<string | string[]>()
 
 const _options = computed(() => {
-  return searchable
-    ? options.filter((option) => option.label.toLowerCase().includes(search.value.toLowerCase()))
-    : options
+  if (!searchable || !search.value) {
+    return options
+  }
+  return options.filter((option) => option.label.toLowerCase().includes(search.value.toLowerCase()))
 })
 
-function onOptionClick(option: string) {
-  if (Array.isArray(model.value)) {
-    model.value.push(option)
+const isSelected = (option: Option): boolean => {
+  if (multiple) {
+    return Array.isArray(model.value) && model.value.includes(option.value)
+  }
+  return model.value === option.value
+}
+
+const modelValueDisplay = computed(() => {
+  if (multiple) {
+    return Array.isArray(model.value) && model.value.length > 0
+  }
+  return model.value !== undefined && model.value !== null && model.value !== ''
+})
+
+function onOptionClick(optionValue: string) {
+  if (multiple) {
+    const currentModelArray = Array.isArray(model.value) ? [...model.value] : []
+    const index = currentModelArray.indexOf(optionValue)
+
+    if (index > -1) {
+      currentModelArray.splice(index, 1)
+    } else {
+      currentModelArray.push(optionValue)
+    }
+    model.value = currentModelArray
   } else {
-    model.value = option
+    model.value = optionValue
     open.value = false
   }
 }
 
-// watchEffect((e) => {
-//   console.log(e)
-// })
+function removeOption(optionValue: string) {
+  if (Array.isArray(model.value)) {
+    model.value = model.value.filter((item) => item !== optionValue)
+  }
+}
+
+watch(
+  () => multiple,
+  (isMultiple) => {
+    if (isMultiple && typeof model.value === 'undefined') {
+      model.value = []
+    } else if (!isMultiple && Array.isArray(model.value)) {
+      model.value = model.value.length > 0 ? model.value[0] : undefined
+    }
+  },
+  { immediate: true },
+)
 
 onClickOutside(
   floatingRef,
