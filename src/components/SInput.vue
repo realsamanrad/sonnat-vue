@@ -1,6 +1,10 @@
 <template>
   <div :class="sizeClass">
-    <label v-if="!floatLabel" :for="name" class="text-sm font-medium text-black-64 mb-2 block">
+    <label
+      v-if="!floatLabel && label"
+      :for="name"
+      class="text-sm font-medium text-black-64 mb-2 block"
+    >
       {{ label }}
       <span v-if="required" class="text-error">*</span>
     </label>
@@ -52,7 +56,10 @@
         <inline-svg v-else-if="appendIcon" :src="appendIcon" />
       </div>
     </div>
-    <p class="flex items-center mt-1 px-2 peer-aria-[invalid]:[&>*]:text-error">
+    <p
+      v-if="helperText || showError"
+      class="flex items-center mt-1 px-2 peer-aria-[invalid]:[&>*]:text-error"
+    >
       <inline-svg
         v-if="helperIcon || showError"
         :src="showError ? InfoCircleSVG : helperIcon"

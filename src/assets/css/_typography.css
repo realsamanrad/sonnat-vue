@@ -53,6 +53,10 @@
   font-feature-settings: "ss04";
 }
 
-@utility fa-digits {
+@utility mono-fa-digits {
   font-feature-settings: "ss03";
+}
+
+@utility fa-digits {
+  font-feature-settings: "ss02";
 }

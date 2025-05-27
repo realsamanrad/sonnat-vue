@@ -1,11 +1,71 @@
 @utility s-select-sm {
-  @apply [&>div]:h-6;
+  & > div:first-child {
+    @apply h-6 text-xs px-2;
+
+    & > div {
+      @apply mr-1 [&>svg]:size-3.5 [&>span]:text-2xs gap-1;
+    }
+
+    &:is(.\!rounded-full) {
+      @apply px-2.5 [&>div]:-ml-1;
+    }
+  }
+
+  ul {
+    @apply text-xs;
+
+    li {
+      @apply h-8;
+    }
+  }
+
+  @apply [&>small]:text-2xs;
 }
 
 @utility s-select-md {
-  @apply [&>div]:first:h-8;
+  & > div:first-child {
+    @apply h-8 text-xs px-2;
+
+    & > div {
+      @apply mr-1 [&>svg]:size-4 [&>span]:text-2xs gap-1;
+    }
+
+    &:is(.\!rounded-full) {
+      @apply px-4 [&>div]:-ml-1;
+    }
+  }
+
+  ul {
+    @apply text-xs;
+
+    li {
+      @apply h-8;
+    }
+  }
+
+  @apply [&>small]:text-xs;
 }
 
 @utility s-select-lg {
-  @apply [&>div]:h-10;
+  & > div:first-child {
+    @apply h-10 text-base px-4;
+
+    & > div {
+      @apply mr-2 -ml-2 [&>svg]:size-6 [&>span]:text-sm gap-2;
+    }
+
+    &:is(.\!rounded-full) {
+      @apply px-6 [&>div]:-ml-3;
+    }
+  }
+
+  ul {
+    @apply text-sm;
+
+    li {
+      @apply h-10;
+    }
+  }
+
+  @apply [&>small]:text-xs;
 }

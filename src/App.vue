@@ -1,7 +1,14 @@
 <template>
   <div class="mx-10 mt-10 flex flex-col gap-6">
     <div class="flex gap-4">
-      <SSelect :options />
+      <SSelect
+        :options
+        append-text="پسوند"
+        helper-text="این یک متن راهنما است"
+        multiple
+        searchable
+        size="lg"
+      />
     </div>
     <div class="border p-2 w-fit mx-auto">
       <span>hover me</span>
