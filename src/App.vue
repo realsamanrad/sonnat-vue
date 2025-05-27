@@ -1,5 +1,8 @@
 <template>
   <div class="mx-10 mt-10 flex flex-col gap-6">
+    <div>
+      <SCheckbox label="ارسال به پست" size="lg" />
+    </div>
     <div class="flex gap-4">
       <SSelect
         :options
@@ -304,6 +307,7 @@ import SInput from '@/components/SInput.vue'
 import SToggle from '@/components/SToggle.vue'
 import STooltip from '@/components/STooltip.vue'
 import SSelect from '@/components/SSelect.vue'
+import SCheckbox from '@/components/SCheckbox.vue'
 
 const selected = ref(true)
 const text = ref('نام')

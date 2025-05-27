@@ -1,0 +1,11 @@
+@utility s-checkbox-sm {
+  @apply [input]:size-7;
+}
+
+@utility s-checkbox-md {
+  @apply [input]:size-8;
+}
+
+@utility s-checkbox-lg {
+  @apply [&>div]:first:size-9;
+}
