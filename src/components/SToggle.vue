@@ -3,6 +3,7 @@
     :class="sizeClass"
     class="inline-flex items-center gap-1 aria-disabled:cursor-not-allowed aria-disabled:[&>*]:pointer-events-none"
     :aria-disabled="disabled"
+    role="button"
   >
     <label
       v-if="label"
