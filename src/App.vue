@@ -28,7 +28,7 @@
     />
     <SBadge label="جدید" />
     <div class="flex flex-wrap gap-4">
-      <SToggle />
+      <SToggle size="lg" label="افزودن به لیست" />
     </div>
     <div class="flex flex-col gap-4">
       <SInput
