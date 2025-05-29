@@ -22,7 +22,7 @@
         v-if="multiple && Array.isArray(model) && model.length"
         class="flex items-center gap-1 flex-wrap"
       >
-        <li v-for="(item, i) in model" :key="i" class="my-0.5">
+        <li v-for="(item, i) in model" :key="i" class="my-0.5" :data-index="i">
           <SChip
             :disabled
             :label="options.find((option) => option.value === item)?.label"
@@ -57,6 +57,7 @@
         :style="floatingStyles"
         class="bg-white rounded-sm z-20 text-black-56 overflow-hidden shadow-[0_1px_6px_rgba(0,0,0,0.04),0_-8px_32px_rgba(0,0,0,0.08),0_16px_24px_rgba(0,0,0,0.04)]"
         role="listbox"
+        @keyup.esc="open = false"
       >
         <SInput
           v-if="searchable"
@@ -67,10 +68,11 @@
           placeholder="جستجوی عناوین"
           variant="filled"
         />
-        <ul class="flex flex-col w-full max-h-64 overflow-auto">
+        <ul class="flex flex-col w-full max-h-64 overflow-auto outline-primary" tabindex="-1">
           <li
             v-for="(option, i) in _options"
             :key="i"
+            :tabindex="option.disabled ? -1 : 0"
             :aria-disabled="option.disabled"
             :aria-selected="model === option.value"
             :class="{
@@ -78,9 +80,10 @@
             }"
             :data-index="i"
             :data-value="option.value"
-            class="w-full min-h-8 cursor-pointer hover:bg-black-4 aria-disabled:pointer-events-none aria-disabled:text-black-24 flex items-center px-4 shrink-0"
+            class="w-full min-h-8 cursor-pointer hover:bg-black-4 aria-disabled:pointer-events-none aria-disabled:text-black-24 flex items-center px-4 shrink-0 outline-0 focus-visible:bg-black-4"
             role="option"
             @click="onOptionClick(option.value)"
+            @keyup.enter="onOptionClick(option.value)"
           >
             <inline-svg v-if="multiple" :src="CheckSVG" class="size-4" />
             {{ option.label }}
