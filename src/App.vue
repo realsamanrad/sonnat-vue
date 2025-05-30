@@ -26,7 +26,27 @@
       tooltip="سلامتی"
       variant="filled"
     />
-    <SBadge label="جدید" />
+    <div class="w-fit">
+      علی محمدحسینی
+      <SBadge class="" size="md" label="خریدار تایید شده" placement="right" solo />
+    </div>
+    <div class="flex gap-4">
+      <div class="bg-black-16 p-12 w-fit rounded-sm">
+        <SBadge class="" size="md" label="خریدار تایید شده" />
+      </div>
+      <div class="bg-black-16 p-12 w-fit rounded-full">
+        <SBadge class="" size="md" label="خریدار" />
+      </div>
+      <div class="bg-black-16 p-12 w-fit rounded-full">
+        <SBadge class="" size="md" label="خریدار تایید شده واقعی" />
+      </div>
+      <div class="bg-black-16 p-12 w-fit rounded-full">
+        <SBadge class="" size="md" label="۰" />
+      </div>
+      <div class="bg-black-16 p-12 w-fit rounded-sm">
+        <SBadge class="" size="lg" />
+      </div>
+    </div>
     <div class="flex flex-wrap gap-4">
       <SToggle size="lg" label="افزودن به لیست" />
     </div>
