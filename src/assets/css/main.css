@@ -11,3 +11,7 @@
 @import "./_transition.css";
 @import "./_select.css";
 @import "./_checkbox.css";
+
+html {
+  overflow-y: scroll;
+}

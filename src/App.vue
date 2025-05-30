@@ -1,5 +1,7 @@
 <template>
   <div class="mx-10 mt-10 flex flex-col gap-6">
+    <SButton label="نمایش تغییرات" @click="showModal = true" />
+    <SModal title="ذخیره تغییرات" v-model="showModal" />
     <div>
       <SCheckbox label="ارسال به پست" size="lg" />
     </div>
@@ -328,9 +330,12 @@ import SToggle from '@/components/SToggle.vue'
 import STooltip from '@/components/STooltip.vue'
 import SSelect from '@/components/SSelect.vue'
 import SCheckbox from '@/components/SCheckbox.vue'
+import SModal from '@/components/SModal.vue'
 
 const selected = ref(true)
 const text = ref('نام')
+
+const showModal = ref(false)
 
 const options = [
   { label: '250 گرم', value: 'option1' },
