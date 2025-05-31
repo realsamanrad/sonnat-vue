@@ -9,17 +9,25 @@
       <input
         :id="inputId"
         :disabled
-        class="relative before:size-full appearance-none cursor-pointer peer before:rounded-full before:bg-black/4 checked:before:bg-primary/4 before:opacity-0 before:absolute before:scale-0 before:transition before:duration-240 focus-visible:not-hover:before:bg-black/12 focus-visible:not-hover:checked:before:bg-primary/12 focus-visible:outline-0 focus-visible:not-hover:before:scale-100 focus-visible:before:opacity-100 disabled:pointer-events-none hover:before:scale-100 hover:before:opacity-100 group"
+        class="inline-flex items-center justify-center relative appearance-none cursor-pointer peer before:rounded-full before:bg-black/4 checked:before:bg-primary/4 before:opacity-0 before:absolute before:scale-0 before:transition before:duration-240 focus-visible:not-hover:before:bg-black/12 focus-visible:not-hover:checked:before:bg-primary/12 focus-visible:outline-0 focus-visible:not-hover:before:scale-100 focus-visible:before:opacity-100 disabled:pointer-events-none hover:before:scale-100 hover:before:opacity-100 after:ring-black-24 after:ring-1 after:ring-inset after:size-5 after:rounded-xs checked:after:bg-primary checked:after:ring-0 after:absolute"
         type="checkbox"
       />
-      <div
-        class="rounded-xs ring ring-black-24 ring-inset absolute _pointer-events-none peer-checked:bg-primary peer-checked:ring-0 flex items-center justify-center peer-not-checked:[&>svg]:hidden peer-disabled:peer-checked:bg-black/12 peer-disabled:ring-black/12"
-      >
-        <inline-svg
-          :src="CheckSVG"
-          class="text-white rotate-45 transition-all duration-1000 peer-checked:rotate-0"
-        />
-      </div>
+      <svg aria-hidden="true" focusable="false">
+        <polyline
+          points="2 0.292893219 2 4.29289322 9.94974747 4.41421356"
+          transform="translate(5.974874, 2.353553) rotate(-45.000000) translate(-5.974874, -2.353553) "
+        ></polyline>
+        <line
+          stroke="#FFFFFF"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          x1="1.03268998"
+          x2="11.0000728"
+          y1="4"
+          y2="4"
+        ></line>
+      </svg>
     </div>
     <label :for="inputId" class="text-black-87" v-text="label" />
   </div>

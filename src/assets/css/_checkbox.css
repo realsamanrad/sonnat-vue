@@ -1,12 +1,12 @@
 @utility s-checkbox-sm {
-  @apply [&_input]:size-7 [&>div>div]:size-4 [&_label]:text-xs;
+  @apply [&_input]:size-4 [&_input]:before:size-7 [&_label]:text-xs;
 }
 
 @utility s-checkbox-md {
-  @apply [&_input]:size-8 [&>div>div]:size-4.5 [&_label]:text-sm;
+  @apply [&_input]:size-4.5 [&_input]:before:size-8 [&_label]:text-sm;
 }
 
 @utility s-checkbox-lg {
-  @apply [&_input]:size-9 [&>div>div]:size-5 [&_label]:text-base;
+  @apply [&_input]:size-11 [&_input]:before:size-11 [&_label]:text-base;
 }
 

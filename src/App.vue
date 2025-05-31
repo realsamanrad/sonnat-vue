@@ -1,7 +1,8 @@
 <template>
   <div class="mx-10 mt-10 flex flex-col gap-6">
+    <div id="test" class="size-11 rounded-xs bg-primary" />
     <SButton label="نمایش تغییرات" @click="showModal = true" />
-    <SModal title="ذخیره تغییرات" v-model="showModal" />
+    <SModal v-model="showModal" title="ذخیره تغییرات" />
     <div>
       <SCheckbox label="ارسال به پست" size="lg" />
     </div>
@@ -30,27 +31,27 @@
     />
     <div class="w-fit">
       علی محمدحسینی
-      <SBadge class="" size="md" label="خریدار تایید شده" placement="right" solo />
+      <SBadge class="" label="خریدار تایید شده" placement="right" size="md" solo />
     </div>
     <div class="flex gap-4">
       <div class="bg-black-16 p-12 w-fit rounded-sm">
-        <SBadge class="" size="md" label="خریدار تایید شده" />
+        <SBadge class="" label="خریدار تایید شده" size="md" />
       </div>
       <div class="bg-black-16 p-12 w-fit rounded-full">
-        <SBadge class="" size="md" label="خریدار" />
+        <SBadge class="" label="خریدار" size="md" />
       </div>
       <div class="bg-black-16 p-12 w-fit rounded-full">
-        <SBadge class="" size="md" label="خریدار تایید شده واقعی" />
+        <SBadge class="" label="خریدار تایید شده واقعی" size="md" />
       </div>
       <div class="bg-black-16 p-12 w-fit rounded-full">
-        <SBadge class="" size="md" label="۰" />
+        <SBadge class="" label="۰" size="md" />
       </div>
       <div class="bg-black-16 p-12 w-fit rounded-sm">
         <SBadge class="" size="lg" />
       </div>
     </div>
     <div class="flex flex-wrap gap-4">
-      <SToggle size="lg" label="افزودن به لیست" />
+      <SToggle label="افزودن به لیست" size="lg" />
     </div>
     <div class="flex flex-col gap-4">
       <SInput
@@ -349,3 +350,17 @@ const options = [
   { label: '5 کیلوگرم', value: 'option9' },
 ]
 </script>
+
+<style scoped>
+#test {
+  mask-image: url('@/assets/icons/check.svg');
+  mask-size: contain; /* Or specific dimensions like '24px 24px' */
+  mask-repeat: no-repeat;
+  mask-position: center;
+
+  -webkit-mask-image: url('@/assets/icons/check.svg');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+</style>
