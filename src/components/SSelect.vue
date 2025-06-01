@@ -22,7 +22,7 @@
         v-if="multiple && Array.isArray(model) && model.length"
         class="flex items-center gap-1 flex-wrap"
       >
-        <li v-for="(item, i) in model" :key="i" class="my-0.5" :data-index="i">
+        <li v-for="(item, i) in model" :key="i" :data-index="i" class="my-0.5">
           <SChip
             :disabled
             :label="options.find((option) => option.value === item)?.label"
@@ -72,7 +72,6 @@
           <li
             v-for="(option, i) in _options"
             :key="i"
-            :tabindex="option.disabled ? -1 : 0"
             :aria-disabled="option.disabled"
             :aria-selected="model === option.value"
             :class="{
@@ -80,6 +79,7 @@
             }"
             :data-index="i"
             :data-value="option.value"
+            :tabindex="option.disabled ? -1 : 0"
             class="w-full min-h-8 cursor-pointer hover:bg-black-4 aria-disabled:pointer-events-none aria-disabled:text-black-24 flex items-center px-4 shrink-0 outline-0 focus-visible:bg-black-4"
             role="option"
             @click="onOptionClick(option.value)"
@@ -95,7 +95,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, useId, useTemplateRef, watch, watchEffect } from 'vue'
+import { computed, ref, useId, useTemplateRef, watch } from 'vue'
+import InlineSvg from 'vue-inline-svg'
 import ChevronDownSVG from '@/assets/icons/chevron-down.svg'
 import {
   autoUpdate,
@@ -109,7 +110,6 @@ import { onClickOutside } from '@vueuse/core'
 import SInput from '@/components/SInput.vue'
 import MagnifierSVG from '@/assets/icons/magnifier.svg'
 import CheckSVG from '@/assets/icons/check.svg'
-import STag from '@/components/STag.vue'
 import SChip from '@/components/SChip.vue'
 
 interface Option {

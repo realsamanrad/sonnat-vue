@@ -10,9 +10,9 @@
         'pointer-events-none': disabled,
       },
     ]"
+    :role="behavior !== 'removable' ? 'button' : undefined"
     :tabindex="disabled || behavior === 'removable' ? -1 : 0"
     class="rounded-xs flex items-center justify-center w-fit select-none transition duration-300 focus-visible:outline-2 outline-offset-1 outline-primary"
-    :role="behavior !== 'removable' ? 'button' : undefined"
     @click="handleClick"
   >
     <inline-svg v-if="icon" :src="icon" />
@@ -34,6 +34,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import CloseSVG from '@/assets/icons/close.svg'
+import InlineSvg from 'vue-inline-svg'
 
 const {
   variant = 'filled',

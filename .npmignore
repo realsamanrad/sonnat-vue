@@ -1,0 +1,25 @@
+# Development files
+src/
+public/
+*.md
+.vscode/
+.git/
+.github/
+node_modules/
+
+# Config files
+vite.config.ts
+tsconfig.json
+tsconfig.*.json
+tailwind.config.js
+eslint.config.js
+.prettierrc
+.gitignore
+
+# Development scripts and assets
+index.html
+*.log
+*.spec.ts
+*.test.ts
+
+# Keep only dist folder for distribution

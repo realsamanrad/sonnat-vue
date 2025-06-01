@@ -62,7 +62,7 @@
     >
       <inline-svg
         v-if="helperIcon || showError"
-        :src="showError ? InfoCircleSVG : helperIcon"
+        :src="showError ? InfoCircleSVG : helperIcon!"
         class="text-black-32 ml-1"
       />
       <small
@@ -79,6 +79,7 @@ import { computed, ref, useTemplateRef } from 'vue'
 import EyeSVG from '@/assets/icons/eye.svg'
 import EyeCrossSVG from '@/assets/icons/eye-cross.svg'
 import InfoCircleSVG from '@/assets/icons/info-circle.svg'
+import InlineSvg from 'vue-inline-svg'
 
 const inputRef = useTemplateRef<HTMLInputElement>('inputRef')
 

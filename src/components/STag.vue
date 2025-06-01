@@ -20,6 +20,7 @@
 
 <script lang="ts" setup>
 import CloseSVG from '@/assets/icons/close.svg'
+import InlineSvg from 'vue-inline-svg'
 
 const {
   variant = 'filled',

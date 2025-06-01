@@ -4,7 +4,7 @@
     class="rounded-sm font-medium transition cursor-pointer flex items-center justify-center duration-300 disabled:pointer-events-none w-fit focus-visible:outline-2 outline-primary outline-offset-1"
   >
     <STooltip v-if="tooltip" :label="tooltip" />
-    <inline-svg v-if="iconOnly" :src="icon" />
+    <inline-svg v-if="iconOnly" :src="icon!" />
     <template v-else>
       <inline-svg v-if="icon" :src="icon" />
       <slot>
@@ -15,9 +15,11 @@
   </button>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { computed } from 'vue'
 import STooltip from '@/components/STooltip.vue'
+import InlineSvg from 'vue-inline-svg'
+
 const {
   variant = 'filled',
   color = 'default',
