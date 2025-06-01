@@ -1,6 +1,6 @@
 {
   "name": "sonnat-vue",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Vue component library using Sonnat Design System to build faster, elegant, and accessible web applications",
   "type": "module",
   "scripts": {
@@ -12,25 +12,19 @@
     "format": "prettier --write src/"
   },
   "main": "./dist/sonnat-vue.umd.cjs",
-  "module": "./dist/sonnat-vue.js",
+  "module": "./dist/sonnat-vue.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/sonnat-vue.js",
-      "require": "./dist/sonnat-vue.umd.cjs",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/sonnat-vue.es.js",
+      "require": "./dist/sonnat-vue.umd.cjs"
     },
     "./dist/style.css": "./dist/style.css"
   },
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "@floating-ui/vue": "^1.1.6",
-    "@vueuse/core": "^13.2.0",
-    "@vueuse/motion": "^3.0.3",
-    "vue-inline-svg": "^4.0.1"
-  },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.6",
     "@tsconfig/node22": "^22.0.1",
@@ -49,11 +43,14 @@
     "vite": "^6.2.4",
     "vite-plugin-dts": "^3.7.0",
     "vite-plugin-vue-devtools": "^7.7.2",
-    "vue-tsc": "^2.2.8",
-    "vue": "^3.5.14"
+    "vue-tsc": "^2.2.8"
   },
   "peerDependencies": {
-    "vue": "^3.5.0"
+    "vue": "^3.5.14",
+    "vue-inline-svg": "^4.0.1",
+    "@floating-ui/vue": "^1.1.6",
+    "@vueuse/core": "^13.2.0",
+    "@vueuse/motion": "^3.0.3"
   },
   "keywords": [
     "vue",

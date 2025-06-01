@@ -2,55 +2,41 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
-import dts from 'vite-plugin-dts'
+// import vueDevTools from 'vite-plugin-vue-devtools'
 import { resolve } from 'path'
+// import dts from 'vite-plugin-dts'
 
-export default defineConfig(({ mode }) => {
-  const isLib = mode === 'lib'
-
-  if (isLib) {
-    // Library build configuration
-    return {
-      plugins: [
-        vue(),
-        tailwindcss(),
-        dts({
-          tsconfigPath: './tsconfig.app.json',
-          exclude: ['src/main.ts', 'src/App.vue', '**/*.spec.ts', '**/*.test.ts'],
-        }),
-      ],
-      build: {
-        lib: {
-          entry: resolve(__dirname, 'src/index.ts'),
-          name: 'SonnatVue',
-          fileName: 'sonnat-vue',
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [
+    vue(),
+    // vueDevTools(),
+    tailwindcss(),
+    // dts(),
+  ],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
+  build: {
+    lib: {
+      entry: resolve(__dirname, './src/index.ts'),
+      name: 'SonnatVue',
+      // formats: ['es', 'umd'],
+      fileName: (format) => `sonnat-vue.${format}.${format === 'umd' ? 'cjs' : 'js'}`,
+    },
+    rollupOptions: {
+      external: ['vue', '@floating-ui/vue', '@vueuse/core', '@vueuse/motion', 'vue-inline-svg'],
+      output: {
+        globals: {
+          vue: 'Vue',
+          '@floating-ui/vue': 'FloatingVue',
+          '@vueuse/core': 'VueUseCore',
+          '@vueuse/motion': 'VueUseMotion',
+          'vue-inline-svg': 'VueInlineSvg',
         },
-        rollupOptions: {
-          external: ['vue'],
-          output: {
-            globals: {
-              vue: 'Vue',
-            },
-          },
-        },
-        sourcemap: true,
-        minify: 'esbuild',
-      },
-      resolve: {
-        alias: {
-          '@': fileURLToPath(new URL('./src', import.meta.url)),
-        },
-      },
-    }
-  }
-
-  // Development configuration
-  return {
-    plugins: [vue(), tailwindcss()],
-    resolve: {
-      alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url)),
       },
     },
-  }
+  },
 })
