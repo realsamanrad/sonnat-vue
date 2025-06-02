@@ -20,7 +20,7 @@
       "import": "./dist/sonnat-vue.es.js",
       "require": "./dist/sonnat-vue.umd.cjs"
     },
-    "./dist/style.css": "./dist/style.css"
+    "./style.css": "./dist/index.css"
   },
   "files": [
     "dist"
