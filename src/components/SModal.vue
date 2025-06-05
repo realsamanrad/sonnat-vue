@@ -35,28 +35,42 @@
 <script setup lang="ts">
 import { useId, watch } from 'vue'
 import SButton from '@/components/SButton.vue'
-import { onKeyStroke } from '@vueuse/core'
+import { onKeyStroke, tryOnMounted } from '@vueuse/core'
 import { useElementStyle } from '@vueuse/motion'
 
 const { persisted = false } = defineProps<{
   title: string
   persisted?: boolean
 }>()
+
 const titleId = `modal-title-${useId()}`
 const descriptionId = `modal-description-${useId()}`
-const model = defineModel<boolean>({
-  default: false,
-})
 
-const { style } = useElementStyle(document.body)
+const model = defineModel<boolean>({ default: false })
 
-watch(model, (val) => {
-  if (val) {
+let style: ReturnType<typeof useElementStyle>['style'] | null = null
+
+tryOnMounted(() => {
+  const { style: bodyStyle } = useElementStyle(document.body)
+  style = bodyStyle
+
+  // Apply the initial state if modal is already open on mount
+  if (model.value) {
     style.height = '100vh'
     style.overflowY = 'hidden'
-  } else {
-    style.overflowY = 'auto'
-    style.height = 'auto'
+  }
+})
+
+// Watch `model` only after mounted
+watch(model, (val) => {
+  if (style) {
+    if (val) {
+      style.height = '100vh'
+      style.overflowY = 'hidden'
+    } else {
+      style.overflowY = 'auto'
+      style.height = 'auto'
+    }
   }
 })
 

@@ -39,11 +39,10 @@
         <slot name="append">
           <span v-if="appendText" class="text-black-32" v-text="appendText" />
         </slot>
-        <inline-svg
+        <ChevronDownSVG
           :class="{
             'rotate-180': open,
           }"
-          :src="ChevronDownSVG"
           class="text-black-32 transition-transform group-aria-disabled:text-black-12"
         />
       </div>
@@ -85,7 +84,7 @@
             @click="onOptionClick(option.value)"
             @keyup.enter="onOptionClick(option.value)"
           >
-            <inline-svg v-if="multiple" :src="CheckSVG" class="size-4" />
+            <CheckSVG v-if="multiple" class="size-4" />
             {{ option.label }}
           </li>
         </ul>
@@ -96,7 +95,6 @@
 
 <script lang="ts" setup>
 import { computed, ref, useId, useTemplateRef, watch } from 'vue'
-import InlineSvg from 'vue-inline-svg'
 import ChevronDownSVG from '@/assets/icons/chevron-down.svg'
 import {
   autoUpdate,
@@ -165,12 +163,12 @@ const isSelected = (option: Option): boolean => {
   return model.value === option.value
 }
 
-const modelValueDisplay = computed(() => {
-  if (multiple) {
-    return Array.isArray(model.value) && model.value.length > 0
-  }
-  return model.value !== undefined && model.value !== null && model.value !== ''
-})
+// const modelValueDisplay = computed(() => {
+//   if (multiple) {
+//     return Array.isArray(model.value) && model.value.length > 0
+//   }
+//   return model.value !== undefined && model.value !== null && model.value !== ''
+// })
 
 function onOptionClick(optionValue: string) {
   if (multiple) {

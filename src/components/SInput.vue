@@ -20,7 +20,7 @@
       class="rounded-sm flex items-center transition duration-240 focus-within:ring focus-within:ring-primary focus-within:ring-inset has-disabled:pointer-events-none cursor-text relative has-[input:read-only]:pointer-events-none text-black-32 aria-[invalid]:border-error aria-[invalid]:focus-within:ring-error aria-[invalid]:hover:border-error aria-[invalid]:text-error group peer"
       @click="inputRef?.focus()"
     >
-      <inline-svg v-if="prependIcon" :src="prependIcon" class="shrink-0 z-10" />
+      <component v-if="prependIcon" :is="prependIcon" class="shrink-0 z-10" />
       <input
         ref="inputRef"
         v-model.trim="model"
@@ -45,24 +45,24 @@
         <slot name="append">
           <span class="text-nowrap" v-text="appendText" />
         </slot>
-        <inline-svg
+        <component
           v-if="type === 'password'"
           :class="{ 'text-primary': showPassword }"
-          :src="showPassword ? EyeSVG : EyeCrossSVG"
+          :is="showPassword ? EyeSVG : EyeCrossSVG"
           class="cursor-pointer hover:text-black-48 transition duration-240"
           role="button"
           @click="showPassword = !showPassword"
         />
-        <inline-svg v-else-if="appendIcon" :src="appendIcon" />
+        <component v-else-if="appendIcon" :is="appendIcon" />
       </div>
     </div>
     <p
       v-if="helperText || showError"
       class="flex items-center mt-1 px-2 peer-aria-[invalid]:[&>*]:text-error"
     >
-      <inline-svg
+      <component
         v-if="helperIcon || showError"
-        :src="showError ? InfoCircleSVG : helperIcon!"
+        :is="showError ? InfoCircleSVG : helperIcon"
         class="text-black-32 ml-1"
       />
       <small
@@ -75,11 +75,10 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, useTemplateRef } from 'vue'
+import { type Component, computed, ref, useTemplateRef } from 'vue'
 import EyeSVG from '@/assets/icons/eye.svg'
 import EyeCrossSVG from '@/assets/icons/eye-cross.svg'
 import InfoCircleSVG from '@/assets/icons/info-circle.svg'
-import InlineSvg from 'vue-inline-svg'
 
 const inputRef = useTemplateRef<HTMLInputElement>('inputRef')
 
@@ -103,9 +102,9 @@ const {
   rounded?: boolean
   readonly?: boolean
   helperText?: string
-  helperIcon?: string
-  prependIcon?: string
-  appendIcon?: string
+  helperIcon?: Component
+  prependIcon?: Component
+  appendIcon?: Component
   label?: string
   required?: boolean
   appendText?: string

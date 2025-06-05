@@ -4,21 +4,20 @@
     class="rounded-sm font-medium transition cursor-pointer flex items-center justify-center duration-300 disabled:pointer-events-none w-fit focus-visible:outline-2 outline-primary outline-offset-1"
   >
     <STooltip v-if="tooltip" :label="tooltip" />
-    <inline-svg v-if="iconOnly" :src="icon!" />
+    <component v-if="iconOnly" :is="icon" />
     <template v-else>
-      <inline-svg v-if="icon" :src="icon" />
+      <component v-if="icon" :is="icon" />
       <slot>
         <span v-text="label" />
       </slot>
-      <inline-svg v-if="trailingIcon" :src="trailingIcon" />
+      <component v-if="trailingIcon" :is="trailingIcon" />
     </template>
   </button>
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { type Component, computed } from 'vue'
 import STooltip from '@/components/STooltip.vue'
-import InlineSvg from 'vue-inline-svg'
 
 const {
   variant = 'filled',
@@ -32,8 +31,8 @@ const {
   variant?: 'filled' | 'outlined' | 'inlined'
   color?: 'primary' | 'default' | 'warning' | 'error' | 'success' | 'info'
   rounded?: boolean
-  trailingIcon?: string
-  icon?: string
+  trailingIcon?: Component
+  icon?: Component
   size?: 'sm' | 'md' | 'lg'
   tooltip?: string
 }>()

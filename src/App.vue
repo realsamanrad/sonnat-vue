@@ -31,22 +31,25 @@
     />
     <div class="w-fit">
       علی محمدحسینی
-      <SBadge class="" label="خریدار تایید شده" placement="right" size="md" solo />
+      <SBadge class="" label="خریدار تایید شده" size="md" solo />
     </div>
-    <div class="flex gap-4">
-      <div class="bg-black-16 p-12 w-fit rounded-sm">
+    <div class="flex gap-4 flex-wrap">
+      <div class="bg-black-16 p-12 w-fit rounded-sm relative">
         <SBadge class="" label="خریدار تایید شده" size="md" />
       </div>
-      <div class="bg-black-16 p-12 w-fit rounded-full">
-        <SBadge class="" label="خریدار" size="md" />
+      <div class="bg-black-16 p-12 w-fit rounded-full relative">
+        <SBadge class="" label="خریدار" size="md" circular-parent />
       </div>
-      <div class="bg-black-16 p-12 w-fit rounded-full">
-        <SBadge class="" label="خریدار تایید شده واقعی" size="md" />
+      <div class="bg-black-16 p-12 w-fit rounded-full relative">
+        <SBadge class="" label="خریدار تایید شده واقعی" size="md" circular-parent />
       </div>
-      <div class="bg-black-16 p-12 w-fit rounded-full">
-        <SBadge class="" label="۰" size="md" />
+      <div class="bg-black-16 size-24 rounded-full relative">
+        <SBadge class="" size="lg" circular-parent />
       </div>
-      <div class="bg-black-16 p-12 w-fit rounded-sm">
+      <div class="bg-black-16 size-64 rounded-full relative">
+        <SBadge class="" size="lg" label="0" circular-parent />
+      </div>
+      <div class="bg-black-16 size-24 rounded-sm relative">
         <SBadge class="" size="lg" />
       </div>
     </div>
@@ -323,7 +326,7 @@ import SButton from '@/components/SButton.vue'
 import SBadge from '@/components/SBadge.vue'
 import STag from '@/components/STag.vue'
 import SChip from '@/components/SChip.vue'
-import HeartSVG from '@/assets/icons/heart.svg'
+import HeartSVG from '@/assets/icons/heart.svg?component'
 import { ref } from 'vue'
 import SRadio from '@/components/SRadio.vue'
 import SInput from '@/components/SInput.vue'
@@ -350,17 +353,3 @@ const options = [
   { label: '5 کیلوگرم', value: 'option9' },
 ]
 </script>
-
-<style scoped>
-#test {
-  mask-image: url('@/assets/icons/check.svg');
-  mask-size: contain; /* Or specific dimensions like '24px 24px' */
-  mask-repeat: no-repeat;
-  mask-position: center;
-
-  -webkit-mask-image: url('@/assets/icons/check.svg');
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-}
-</style>

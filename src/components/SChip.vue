@@ -15,7 +15,7 @@
     class="rounded-xs flex items-center justify-center w-fit select-none transition duration-300 focus-visible:outline-2 outline-offset-1 outline-primary"
     @click="handleClick"
   >
-    <inline-svg v-if="icon" :src="icon" />
+    <component v-if="icon" :is="icon" />
     <slot>
       <span v-text="label" />
     </slot>
@@ -26,15 +26,14 @@
       class="h-full group cursor-pointer flex justify-center items-center focus-visible:outline-0"
       @click="$emit('remove')"
     >
-      <inline-svg :src="CloseSVG" class="size-4 rounded-full transition duration-300" />
+      <CloseSVG class="size-4 rounded-full transition duration-300" />
     </button>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { type Component, computed } from 'vue'
 import CloseSVG from '@/assets/icons/close.svg'
-import InlineSvg from 'vue-inline-svg'
 
 const {
   variant = 'filled',
@@ -48,7 +47,7 @@ const {
   variant?: 'filled' | 'outlined'
   color?: 'primary' | 'default'
   rounded?: boolean
-  icon?: string
+  icon?: Component
   size?: 'sm' | 'md' | 'lg'
   disabled?: boolean
   behavior?: 'removable' | 'selective' | 'interactive'

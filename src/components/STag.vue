@@ -3,7 +3,7 @@
     :class="[_class[variant][color], dense ? 's-tag-dense' : 's-tag']"
     class="flex justify-center items-center rounded-sm w-fit px-2"
   >
-    <inline-svg v-if="icon" :src="icon" class="size-4 ml-1 -mr-1" />
+    <component v-if="icon" :is="icon" class="size-4 ml-1 -mr-1" />
     <slot>
       <span v-text="label" />
     </slot>
@@ -13,14 +13,14 @@
       class="h-full group/remove cursor-pointer flex justify-center items-center -ml-1 mr-1 focus-visible:outline-0"
       @click="$emit('remove')"
     >
-      <inline-svg :src="CloseSVG" class="size-4 rounded-full transition duration-300" />
+      <CloseSVG class="size-4 rounded-full transition duration-300" />
     </button>
   </div>
 </template>
 
 <script lang="ts" setup>
 import CloseSVG from '@/assets/icons/close.svg'
-import InlineSvg from 'vue-inline-svg'
+import type { Component } from 'vue'
 
 const {
   variant = 'filled',
@@ -32,7 +32,7 @@ const {
   variant?: 'filled' | 'outlined'
   color?: 'primary' | 'default' | 'warning' | 'error' | 'success' | 'info'
   dense?: boolean
-  icon?: string
+  icon?: Component
   removable?: boolean
 }>()
 
