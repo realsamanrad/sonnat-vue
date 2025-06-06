@@ -2,7 +2,7 @@
   <div :class="sizeClass">
     <label
       v-if="!floatLabel && label"
-      :for="name"
+      :for="inputId"
       class="text-sm font-medium text-black-64 mb-2 block"
     >
       {{ label }}
@@ -27,6 +27,7 @@
         :class="{ 'placeholder-transparent': floatLabel }"
         :disabled
         :name
+        :id="inputId"
         :placeholder
         :readonly
         :required
@@ -35,6 +36,7 @@
         @change="showError = false"
       />
       <label
+        :for="inputId"
         v-if="floatLabel"
         class="absolute peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-1 peer-placeholder-shown:top-1/2 -translate-y-1/2 top-0 transition-all pointer-events-none peer-placeholder-shown:text-black-32 peer-[:not(:placeholder-shown)]:text-black-64 peer-placeholder-shown:[&>span]:text-error-300 group-aria-[invalid]:peer-[:not(:placeholder-shown)]:text-error"
       >
@@ -75,12 +77,14 @@
 </template>
 
 <script lang="ts" setup>
-import { type Component, computed, ref, useTemplateRef } from 'vue'
+import { type Component, computed, ref, useId, useTemplateRef } from 'vue'
 import EyeSVG from '@/assets/icons/eye.svg'
 import EyeCrossSVG from '@/assets/icons/eye-cross.svg'
 import InfoCircleSVG from '@/assets/icons/info-circle.svg'
 
 const inputRef = useTemplateRef<HTMLInputElement>('inputRef')
+
+const inputId = 'input-' + useId()
 
 const model = defineModel<string>({ default: '' })
 const {
@@ -98,7 +102,7 @@ const {
   disabled?: boolean
   variant?: 'filled' | 'outlined'
   size?: 'sm' | 'md' | 'lg'
-  name: string
+  name?: string
   rounded?: boolean
   readonly?: boolean
   helperText?: string

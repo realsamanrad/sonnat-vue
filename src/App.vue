@@ -1,5 +1,21 @@
 <template>
   <div class="mx-10 mt-10 flex flex-col gap-6">
+    <div>
+      <SInput />
+    </div>
+    <SDropdown ref="dropdownRef" class="shadow-sm p-4 rounded-sm bg-white w-full">
+      <template #toggle="{ open }">
+        <SButton
+          label="دسته بندی ها"
+          :icon="ChevronDownSVG"
+          class="[&_svg]:transition"
+          :class="{ '[&_svg]:rotate-180 ': open }"
+          @click="dropdownRef?.toggle()"
+        />
+      </template>
+      saad
+    </SDropdown>
+
     <div id="test" class="size-11 rounded-xs bg-primary" />
     <SButton label="نمایش تغییرات" @click="showModal = true" />
     <SModal v-model="showModal" title="ذخیره تغییرات" />
@@ -327,7 +343,9 @@ import SBadge from '@/components/SBadge.vue'
 import STag from '@/components/STag.vue'
 import SChip from '@/components/SChip.vue'
 import HeartSVG from '@/assets/icons/heart.svg?component'
-import { ref } from 'vue'
+import ChevronDownSVG from '@/assets/icons/chevron-down.svg'
+
+import { ref, useTemplateRef } from 'vue'
 import SRadio from '@/components/SRadio.vue'
 import SInput from '@/components/SInput.vue'
 import SToggle from '@/components/SToggle.vue'
@@ -335,6 +353,9 @@ import STooltip from '@/components/STooltip.vue'
 import SSelect from '@/components/SSelect.vue'
 import SCheckbox from '@/components/SCheckbox.vue'
 import SModal from '@/components/SModal.vue'
+import SDropdown from '@/components/SDropdown.vue'
+
+const dropdownRef = useTemplateRef<InstanceType<typeof SDropdown>>('dropdownRef')
 
 const selected = ref(true)
 const text = ref('نام')
