@@ -1,8 +1,6 @@
 <template>
   <div class="mx-10 mt-10 flex flex-col gap-6">
-    <div>
-      <SInput />
-    </div>
+    <SButton :icon="HeartSVG" />
     <SDropdown ref="dropdownRef" class="shadow-sm p-4 rounded-sm bg-white w-full">
       <template #toggle="{ open }">
         <SButton
@@ -37,14 +35,155 @@
       <STooltip label="این یک متن راهنما است" placement="top" />
     </div>
     <SRadio label="پرداخت در محل" />
-    <SButton
-      :icon="HeartSVG"
-      color="primary"
-      label="سلامتی"
-      size="md"
-      tooltip="سلامتی"
-      variant="filled"
-    />
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-wrap gap-4">
+        <SButton :icon="HeartSVG" color="primary" label="سلامتی" size="sm" variant="filled" />
+        <SButton
+          :icon="HeartSVG"
+          :trailing-icon="HeartSVG"
+          color="primary"
+          label="سلامتی"
+          size="sm"
+          variant="filled"
+        />
+        <SButton
+          :trailing-icon="HeartSVG"
+          color="primary"
+          label="سلامتی"
+          size="sm"
+          variant="filled"
+        />
+        <SButton color="primary" label="سلامتی" size="sm" variant="filled" />
+        <SButton :icon="HeartSVG" color="primary" size="sm" variant="filled" />
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <SButton :icon="HeartSVG" color="primary" label="سلامتی" size="md" variant="filled" />
+        <SButton
+          :icon="HeartSVG"
+          :trailing-icon="HeartSVG"
+          color="primary"
+          label="سلامتی"
+          size="md"
+          variant="filled"
+        />
+        <SButton
+          :trailing-icon="HeartSVG"
+          color="primary"
+          label="سلامتی"
+          size="md"
+          variant="filled"
+        />
+        <SButton color="primary" label="سلامتی" size="md" variant="filled" />
+        <SButton :icon="HeartSVG" color="primary" size="md" variant="filled" />
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <SButton :icon="HeartSVG" color="primary" label="سلامتی" size="lg" variant="filled" />
+        <SButton
+          :icon="HeartSVG"
+          :trailing-icon="HeartSVG"
+          color="primary"
+          label="سلامتی"
+          size="lg"
+          variant="filled"
+        />
+        <SButton
+          :trailing-icon="HeartSVG"
+          color="primary"
+          label="سلامتی"
+          size="lg"
+          variant="filled"
+        />
+        <SButton color="primary" label="سلامتی" size="lg" variant="filled" />
+        <SButton :icon="HeartSVG" color="primary" size="lg" variant="filled" />
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <SButton
+          rounded
+          :icon="HeartSVG"
+          color="primary"
+          label="سلامتی"
+          size="sm"
+          variant="filled"
+        />
+        <SButton
+          rounded
+          :icon="HeartSVG"
+          :trailing-icon="HeartSVG"
+          color="primary"
+          label="سلامتی"
+          size="sm"
+          variant="filled"
+        />
+        <SButton
+          rounded
+          :trailing-icon="HeartSVG"
+          color="primary"
+          label="سلامتی"
+          size="sm"
+          variant="filled"
+        />
+        <SButton rounded color="primary" label="سلامتی" size="sm" variant="filled" />
+        <SButton rounded :icon="HeartSVG" color="primary" size="sm" variant="filled" />
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <SButton
+          rounded
+          :icon="HeartSVG"
+          color="primary"
+          label="سلامتی"
+          size="md"
+          variant="filled"
+        />
+        <SButton
+          rounded
+          :icon="HeartSVG"
+          :trailing-icon="HeartSVG"
+          color="primary"
+          label="سلامتی"
+          size="md"
+          variant="filled"
+        />
+        <SButton
+          rounded
+          :trailing-icon="HeartSVG"
+          color="primary"
+          label="سلامتی"
+          size="md"
+          variant="filled"
+        />
+        <SButton rounded color="primary" label="سلامتی" size="md" variant="filled" />
+        <SButton rounded :icon="HeartSVG" color="primary" size="md" variant="filled" />
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <SButton
+          rounded
+          :icon="HeartSVG"
+          color="primary"
+          label="سلامتی"
+          size="lg"
+          variant="filled"
+        />
+        <SButton
+          rounded
+          :icon="HeartSVG"
+          :trailing-icon="HeartSVG"
+          color="primary"
+          label="سلامتی"
+          size="lg"
+          variant="filled"
+        />
+        <SButton
+          rounded
+          :trailing-icon="HeartSVG"
+          color="primary"
+          label="سلامتی"
+          size="lg"
+          variant="filled"
+        />
+        <SButton rounded color="primary" label="سلامتی" size="lg" variant="filled" />
+        <SButton rounded :icon="HeartSVG" color="primary" size="lg" variant="filled" />
+      </div>
+    </div>
     <div class="w-fit">
       علی محمدحسینی
       <SBadge class="" label="خریدار تایید شده" size="md" solo />
