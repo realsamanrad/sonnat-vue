@@ -1,5 +1,5 @@
 <template>
-  <div :class="sizeClass" class="w-full fa-digits">
+  <div :class="sizeClass" class="w-full">
     <div
       ref="selectRef"
       :aria-controls="dropdownId"
