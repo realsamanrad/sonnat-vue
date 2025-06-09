@@ -1,7 +1,7 @@
 <template>
   <div class="mx-10 mt-10 flex flex-col gap-6">
     <SButton :icon="HeartSVG" />
-    <SDropdown ref="dropdownRef" class="shadow-sm p-4 rounded-sm bg-white w-full">
+    <SDropdown ref="dropdownRef" class="mt-1">
       <template #toggle="{ open }">
         <SButton
           label="دسته بندی ها"
@@ -11,7 +11,9 @@
           @click="dropdownRef?.toggle()"
         />
       </template>
-      saad
+      <template #dropdown>
+        <div class="shadow-sm p-4 rounded-sm bg-white w-full">asdsasadsaddas sadsdads asdas</div>
+      </template>
     </SDropdown>
 
     <div id="test" class="size-11 rounded-xs bg-primary" />
@@ -20,15 +22,123 @@
     <div>
       <SCheckbox label="ارسال به پست" size="lg" />
     </div>
-    <div class="flex gap-4">
-      <SSelect
-        :options
-        append-text="پسوند"
-        helper-text="این یک متن راهنما است"
-        multiple
-        searchable
-        size="sm"
-      />
+    <div class="flex flex-col gap-4">
+      <div class="flex gap-4">
+        <SSelect
+          :options
+          v-model="selectedOptions"
+          append-text="پسوند"
+          helper-text="این یک متن راهنما است"
+          multiple
+          searchable
+          size="sm"
+        />
+        <SSelect
+          :options
+          v-model="selectedOptions"
+          append-text="پسوند"
+          helper-text="این یک متن راهنما است"
+          multiple
+          searchable
+          size="md"
+        />
+        <SSelect
+          :options
+          v-model="selectedOptions"
+          append-text="پسوند"
+          helper-text="این یک متن راهنما است"
+          multiple
+          searchable
+          size="lg"
+        />
+      </div>
+      <div class="flex gap-4">
+        <SSelect
+          rounded
+          :options
+          v-model="selectedOptions"
+          append-text="پسوند"
+          helper-text="این یک متن راهنما است"
+          multiple
+          searchable
+          size="sm"
+        />
+        <SSelect
+          rounded
+          :options
+          v-model="selectedOptions"
+          append-text="پسوند"
+          helper-text="این یک متن راهنما است"
+          multiple
+          searchable
+          size="md"
+        />
+        <SSelect
+          rounded
+          :options
+          v-model="selectedOptions"
+          append-text="پسوند"
+          helper-text="این یک متن راهنما است"
+          multiple
+          searchable
+          size="lg"
+        />
+      </div>
+      <div class="flex gap-4">
+        <SSelect
+          :options
+          v-model="selectedOption"
+          append-text="پسوند"
+          helper-text="این یک متن راهنما است"
+          searchable
+          size="sm"
+        />
+        <SSelect
+          :options
+          v-model="selectedOption"
+          append-text="پسوند"
+          helper-text="این یک متن راهنما است"
+          searchable
+          size="md"
+        />
+        <SSelect
+          :options
+          v-model="selectedOption"
+          append-text="پسوند"
+          helper-text="این یک متن راهنما است"
+          searchable
+          size="lg"
+        />
+      </div>
+      <div class="flex gap-4">
+        <SSelect
+          rounded
+          :options
+          v-model="selectedOption"
+          append-text="پسوند"
+          helper-text="این یک متن راهنما است"
+          searchable
+          size="sm"
+        />
+        <SSelect
+          rounded
+          :options
+          v-model="selectedOption"
+          append-text="پسوند"
+          helper-text="این یک متن راهنما است"
+          searchable
+          size="md"
+        />
+        <SSelect
+          rounded
+          :options
+          v-model="selectedOption"
+          append-text="پسوند"
+          helper-text="این یک متن راهنما است"
+          searchable
+          size="lg"
+        />
+      </div>
     </div>
     <div class="border p-2 w-fit mx-auto">
       <span>hover me</span>
@@ -500,6 +610,9 @@ const selected = ref(true)
 const text = ref('نام')
 
 const showModal = ref(false)
+
+const selectedOption = ref('option1')
+const selectedOptions = ref(['option1', 'option2'])
 
 const options = [
   { label: '250 گرم', value: 'option1' },

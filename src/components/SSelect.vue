@@ -1,7 +1,7 @@
 <template>
   <div :class="sizeClass" class="w-full">
     <div
-      ref="selectRef"
+      ref="select"
       :aria-controls="dropdownId"
       :aria-disabled="disabled"
       :aria-expanded="open"
@@ -35,7 +35,7 @@
       <template v-else>
         {{ options.find((option) => option.value === model)?.label ?? placeholder }}
       </template>
-      <div class="flex items-center group-aria-invalid:[&>*]:text-error">
+      <div class="flex items-center group-aria-invalid:[&>*]:text-error pointer-events-none">
         <slot name="append">
           <span v-if="appendText" class="text-black-32" v-text="appendText" />
         </slot>
@@ -52,7 +52,7 @@
       <div
         v-show="open"
         :id="dropdownId"
-        ref="floatingRef"
+        ref="floating"
         :style="floatingStyles"
         class="bg-white rounded-sm z-20 text-black-56 overflow-hidden shadow-[0_1px_6px_rgba(0,0,0,0.04),0_-8px_32px_rgba(0,0,0,0.08),0_16px_24px_rgba(0,0,0,0.04)]"
         role="listbox"
@@ -144,8 +144,8 @@ const search = ref('')
 
 const dropdownId = useId()
 
-const selectRef = useTemplateRef<HTMLDivElement>('selectRef')
-const floatingRef = useTemplateRef<HTMLDivElement>('floatingRef')
+const selectRef = useTemplateRef<HTMLDivElement>('select')
+const floatingRef = useTemplateRef<HTMLDivElement>('floating')
 
 const model = defineModel<string | string[]>()
 

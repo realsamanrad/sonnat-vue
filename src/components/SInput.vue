@@ -22,7 +22,7 @@
     >
       <component v-if="prependIcon" :is="prependIcon" class="shrink-0 z-10" />
       <input
-        ref="inputRef"
+        ref="input"
         v-model.trim="model"
         :class="{ 'placeholder-transparent': floatLabel }"
         :disabled
@@ -82,7 +82,7 @@ import EyeSVG from '@/assets/icons/eye.svg'
 import EyeCrossSVG from '@/assets/icons/eye-cross.svg'
 import InfoCircleSVG from '@/assets/icons/info-circle.svg'
 
-const inputRef = useTemplateRef<HTMLInputElement>('inputRef')
+const inputRef = useTemplateRef<HTMLInputElement>('input')
 
 const inputId = 'input-' + useId()
 

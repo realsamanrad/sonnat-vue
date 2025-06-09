@@ -1,10 +1,10 @@
 <template>
-  <div ref="toggleRef">
+  <div ref="toggle" v-bind="$attrs">
     <slot name="toggle" :open="open" />
   </div>
   <Transition name="fade">
-    <div :style="floatingStyles" v-show="open" ref="dropdownRef" v-bind="$attrs" class="z-10">
-      <slot />
+    <div :style="floatingStyles" v-show="open" ref="dropdown" v-bind="$attrs" class="z-10">
+      <slot name="dropdown" />
     </div>
   </Transition>
 </template>
@@ -14,8 +14,8 @@ import { autoUpdate, offset, flip, useFloating, size } from '@floating-ui/vue'
 import { ref, useTemplateRef } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 
-const dropdownRef = useTemplateRef<HTMLDivElement>('dropdownRef')
-const toggleRef = useTemplateRef<HTMLDivElement>('toggleRef')
+const dropdownRef = useTemplateRef<HTMLDivElement>('dropdown')
+const toggleRef = useTemplateRef<HTMLDivElement>('toggle')
 const open = ref(false)
 
 const { floatingStyles } = useFloating(toggleRef, dropdownRef, {
