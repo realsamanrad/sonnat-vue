@@ -1,6 +1,6 @@
 <template>
   <div class="mx-10 mt-10 flex flex-col gap-6">
-    <SRating />
+    <SRating v-model="rating" />
     <SButton :icon="HeartSVG" />
     <SDropdown ref="dropdownRef" class="mt-1">
       <template #toggle="{ open }">
@@ -610,6 +610,7 @@ const dropdownRef = useTemplateRef<InstanceType<typeof SDropdown>>('dropdownRef'
 
 const selected = ref(true)
 const text = ref('نام')
+const rating = ref(3)
 
 const showModal = ref(false)
 
