@@ -1,13 +1,14 @@
 <template>
   <div class="mx-10 mt-10 flex flex-col gap-6">
+    <SRating />
     <SButton :icon="HeartSVG" />
     <SDropdown ref="dropdownRef" class="mt-1">
       <template #toggle="{ open }">
         <SButton
-          label="دسته بندی ها"
+          :class="{ '[&_svg]:rotate-180 ': open }"
           :icon="ChevronDownSVG"
           class="[&_svg]:transition"
-          :class="{ '[&_svg]:rotate-180 ': open }"
+          label="دسته بندی ها"
           @click="dropdownRef?.toggle()"
         />
       </template>
@@ -25,8 +26,8 @@
     <div class="flex flex-col gap-4">
       <div class="flex gap-4">
         <SSelect
-          :options
           v-model="selectedOptions"
+          :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
           multiple
@@ -34,8 +35,8 @@
           size="sm"
         />
         <SSelect
-          :options
           v-model="selectedOptions"
+          :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
           multiple
@@ -43,8 +44,8 @@
           size="md"
         />
         <SSelect
-          :options
           v-model="selectedOptions"
+          :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
           multiple
@@ -54,56 +55,56 @@
       </div>
       <div class="flex gap-4">
         <SSelect
-          rounded
-          :options
           v-model="selectedOptions"
+          :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
           multiple
+          rounded
           searchable
           size="sm"
         />
         <SSelect
-          rounded
-          :options
           v-model="selectedOptions"
+          :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
           multiple
+          rounded
           searchable
           size="md"
         />
         <SSelect
-          rounded
-          :options
           v-model="selectedOptions"
+          :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
           multiple
+          rounded
           searchable
           size="lg"
         />
       </div>
       <div class="flex gap-4">
         <SSelect
-          :options
           v-model="selectedOption"
+          :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
           searchable
           size="sm"
         />
         <SSelect
-          :options
           v-model="selectedOption"
+          :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
           searchable
           size="md"
         />
         <SSelect
-          :options
           v-model="selectedOption"
+          :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
           searchable
@@ -112,29 +113,29 @@
       </div>
       <div class="flex gap-4">
         <SSelect
-          rounded
-          :options
           v-model="selectedOption"
+          :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
+          rounded
           searchable
           size="sm"
         />
         <SSelect
-          rounded
-          :options
           v-model="selectedOption"
+          :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
+          rounded
           searchable
           size="md"
         />
         <SSelect
-          rounded
-          :options
           v-model="selectedOption"
+          :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
+          rounded
           searchable
           size="lg"
         />
@@ -208,90 +209,90 @@
       </div>
       <div class="flex flex-wrap gap-4">
         <SButton
-          rounded
           :icon="HeartSVG"
           color="primary"
           label="سلامتی"
+          rounded
           size="sm"
           variant="filled"
         />
         <SButton
-          rounded
           :icon="HeartSVG"
           :trailing-icon="HeartSVG"
           color="primary"
           label="سلامتی"
+          rounded
           size="sm"
           variant="filled"
         />
         <SButton
-          rounded
           :trailing-icon="HeartSVG"
           color="primary"
           label="سلامتی"
+          rounded
           size="sm"
           variant="filled"
         />
-        <SButton rounded color="primary" label="سلامتی" size="sm" variant="filled" />
-        <SButton rounded :icon="HeartSVG" color="primary" size="sm" variant="filled" />
+        <SButton color="primary" label="سلامتی" rounded size="sm" variant="filled" />
+        <SButton :icon="HeartSVG" color="primary" rounded size="sm" variant="filled" />
       </div>
       <div class="flex flex-wrap gap-4">
         <SButton
-          rounded
           :icon="HeartSVG"
           color="primary"
           label="سلامتی"
+          rounded
           size="md"
           variant="filled"
         />
         <SButton
-          rounded
           :icon="HeartSVG"
           :trailing-icon="HeartSVG"
           color="primary"
           label="سلامتی"
+          rounded
           size="md"
           variant="filled"
         />
         <SButton
-          rounded
           :trailing-icon="HeartSVG"
           color="primary"
           label="سلامتی"
+          rounded
           size="md"
           variant="filled"
         />
-        <SButton rounded color="primary" label="سلامتی" size="md" variant="filled" />
-        <SButton rounded :icon="HeartSVG" color="primary" size="md" variant="filled" />
+        <SButton color="primary" label="سلامتی" rounded size="md" variant="filled" />
+        <SButton :icon="HeartSVG" color="primary" rounded size="md" variant="filled" />
       </div>
       <div class="flex flex-wrap gap-4">
         <SButton
-          rounded
           :icon="HeartSVG"
           color="primary"
           label="سلامتی"
+          rounded
           size="lg"
           variant="filled"
         />
         <SButton
-          rounded
           :icon="HeartSVG"
           :trailing-icon="HeartSVG"
           color="primary"
           label="سلامتی"
+          rounded
           size="lg"
           variant="filled"
         />
         <SButton
-          rounded
           :trailing-icon="HeartSVG"
           color="primary"
           label="سلامتی"
+          rounded
           size="lg"
           variant="filled"
         />
-        <SButton rounded color="primary" label="سلامتی" size="lg" variant="filled" />
-        <SButton rounded :icon="HeartSVG" color="primary" size="lg" variant="filled" />
+        <SButton color="primary" label="سلامتی" rounded size="lg" variant="filled" />
+        <SButton :icon="HeartSVG" color="primary" rounded size="lg" variant="filled" />
       </div>
     </div>
     <div class="w-fit">
@@ -303,16 +304,16 @@
         <SBadge class="" label="خریدار تایید شده" size="md" />
       </div>
       <div class="bg-black-16 p-12 w-fit rounded-full relative">
-        <SBadge class="" label="خریدار" size="md" circular-parent />
+        <SBadge circular-parent class="" label="خریدار" size="md" />
       </div>
       <div class="bg-black-16 p-12 w-fit rounded-full relative">
-        <SBadge class="" label="خریدار تایید شده واقعی" size="md" circular-parent />
+        <SBadge circular-parent class="" label="خریدار تایید شده واقعی" size="md" />
       </div>
       <div class="bg-black-16 size-24 rounded-full relative">
-        <SBadge class="" size="lg" circular-parent />
+        <SBadge circular-parent class="" size="lg" />
       </div>
       <div class="bg-black-16 size-64 rounded-full relative">
-        <SBadge class="" size="lg" label="0" circular-parent />
+        <SBadge circular-parent class="" label="0" size="lg" />
       </div>
       <div class="bg-black-16 size-24 rounded-sm relative">
         <SBadge class="" size="lg" />
@@ -603,6 +604,7 @@ import SSelect from '@/components/SSelect.vue'
 import SCheckbox from '@/components/SCheckbox.vue'
 import SModal from '@/components/SModal.vue'
 import SDropdown from '@/components/SDropdown.vue'
+import SRating from '@/components/SRating.vue'
 
 const dropdownRef = useTemplateRef<InstanceType<typeof SDropdown>>('dropdownRef')
 
