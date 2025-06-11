@@ -1,5 +1,79 @@
 <template>
   <div class="mx-10 mt-10 flex flex-col gap-6">
+    <div class="flex gap-4 flex-col">
+      <div class="flex gap-4">
+        <STextarea
+          helper-text="این یک متن راهنما است"
+          label="آدرس پستی"
+          model-value="سلام خوبی"
+          placeholder="متنم"
+          size="sm"
+        />
+        <STextarea
+          helper-text="این یک متن راهنما است"
+          label="آدرس پستی"
+          model-value="سلام خوبی"
+          placeholder="متنم"
+          size="sm"
+        />
+        <STextarea
+          helper-text="این یک متن راهنما است"
+          label="آدرس پستی"
+          model-value="سلام خوبی"
+          placeholder="متنم"
+          readonly
+          size="sm"
+        />
+      </div>
+      <div class="flex gap-4">
+        <STextarea
+          error="مشکل دارد"
+          helper-text="این یک متن راهنما است"
+          label="آدرس پستی"
+          model-value="سلام خوبی"
+          placeholder="متنم"
+          size="md"
+        />
+        <STextarea
+          helper-text="این یک متن راهنما است"
+          label="آدرس پستی"
+          model-value="سلام خوبی"
+          placeholder="متنم"
+          size="md"
+        />
+        <STextarea
+          disabled
+          helper-text="این یک متن راهنما است"
+          label="آدرس پستی"
+          model-value="سلام خوبی"
+          placeholder="متنم"
+          size="md"
+        />
+      </div>
+      <div class="flex gap-4">
+        <STextarea
+          helper-text="این یک متن راهنما است"
+          label="آدرس پستی"
+          model-value="سلام خوبی"
+          placeholder="متنم"
+          size="lg"
+        />
+        <STextarea
+          helper-text="این یک متن راهنما است"
+          label="آدرس پستی"
+          model-value="سلام خوبی"
+          placeholder="متنم"
+          size="lg"
+        />
+        <STextarea
+          helper-text="این یک متن راهنما است"
+          label="آدرس پستی"
+          model-value="سلام خوبی"
+          placeholder="متنم"
+          size="lg"
+        />
+      </div>
+    </div>
     <SRating v-model="rating" />
     <SButton :icon="HeartSVG" />
     <SDropdown ref="dropdownRef" class="mt-1">
@@ -605,6 +679,7 @@ import SCheckbox from '@/components/SCheckbox.vue'
 import SModal from '@/components/SModal.vue'
 import SDropdown from '@/components/SDropdown.vue'
 import SRating from '@/components/SRating.vue'
+import STextarea from '@/components/STextarea.vue'
 
 const dropdownRef = useTemplateRef<InstanceType<typeof SDropdown>>('dropdownRef')
 

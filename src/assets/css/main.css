@@ -11,6 +11,7 @@
 @import "./_transition.css";
 @import "./_select.css";
 @import "./_checkbox.css";
+@import "./_textarea.css";
 
 html {
   overflow-y: scroll;

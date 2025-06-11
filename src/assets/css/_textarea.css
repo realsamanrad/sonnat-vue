@@ -1,0 +1,29 @@
+@utility s-textarea-sm {
+  label {
+    @apply text-sm;
+  }
+
+  textarea {
+    @apply py-0.5 px-2 text-xs;
+  }
+}
+
+@utility s-textarea-md {
+  label {
+    @apply text-sm;
+  }
+
+  textarea {
+    @apply py-1.5 px-2 text-xs;
+  }
+}
+
+@utility s-textarea-lg {
+  label {
+    @apply text-base;
+  }
+
+  textarea {
+    @apply py-2 px-4 text-base;
+  }
+}
