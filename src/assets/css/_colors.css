@@ -19,17 +19,21 @@
   --color-black-16: #d6d6d6;
   --color-black-24: #c2c2c2;
   --color-black-32: #adadad;
+  --color-black-33: #aaaaaa;
   --color-black-35: #a6a6a6;
   --color-black-38: #9f9f9f;
   --color-black-40: #999999;
   --color-black-48: #858585;
   --color-black-56: #707070;
   --color-black-64: #5c5c5c;
+  --color-black-70: #4b4b4b;
   --color-black-72: #474747;
   --color-black-77: #3b3b3b;
   --color-black-80: #333333;
+  --color-black-82: #2e2e2e;
   --color-black-87: #212121;
   --color-black-88: #1e1e1e;
+  --color-black-92: #121212;
 
   --color-success-50: var(--color-green-50);
   --color-success-100: var(--color-green-100);

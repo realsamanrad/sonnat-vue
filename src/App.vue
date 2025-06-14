@@ -220,10 +220,95 @@
       <STooltip label="این یک متن راهنما است" placement="top" />
     </div>
     <SRadio label="پرداخت در محل" />
+    <div class="flex flex-col gap-4 p-4 bg-black-92 dark rounded-sm">
+      <div class="flex flex-wrap gap-4">
+        <SButton :icon="HeartSVG" label="سلامتی" size="sm" variant="filled" />
+        <SButton
+          disabled
+          :icon="HeartSVG"
+          :trailing-icon="HeartSVG"
+          label="سلامتی"
+          size="sm"
+          variant="filled"
+        />
+        <SButton :trailing-icon="HeartSVG" label="سلامتی" size="sm" variant="filled" />
+        <SButton label="سلامتی" size="sm" variant="filled" />
+        <SButton :icon="HeartSVG" size="sm" variant="filled" />
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <SButton :icon="HeartSVG" label="سلامتی" size="md" variant="filled" />
+        <SButton
+          :icon="HeartSVG"
+          :trailing-icon="HeartSVG"
+          label="سلامتی"
+          size="md"
+          variant="filled"
+        />
+        <SButton :trailing-icon="HeartSVG" label="سلامتی" size="md" variant="filled" />
+        <SButton label="سلامتی" size="md" variant="filled" />
+        <SButton :icon="HeartSVG" size="md" variant="filled" />
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <SButton :icon="HeartSVG" label="سلامتی" size="lg" variant="filled" />
+        <SButton
+          :icon="HeartSVG"
+          :trailing-icon="HeartSVG"
+          label="سلامتی"
+          size="lg"
+          variant="filled"
+        />
+        <SButton :trailing-icon="HeartSVG" label="سلامتی" size="lg" variant="filled" />
+        <SButton label="سلامتی" size="lg" variant="filled" />
+        <SButton :icon="HeartSVG" size="lg" variant="filled" />
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <SButton :icon="HeartSVG" label="سلامتی" rounded size="sm" variant="filled" />
+        <SButton
+          :icon="HeartSVG"
+          :trailing-icon="HeartSVG"
+          label="سلامتی"
+          rounded
+          size="sm"
+          variant="filled"
+        />
+        <SButton :trailing-icon="HeartSVG" label="سلامتی" rounded size="sm" variant="filled" />
+        <SButton label="سلامتی" rounded size="sm" variant="filled" />
+        <SButton :icon="HeartSVG" rounded size="sm" variant="filled" />
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <SButton :icon="HeartSVG" label="سلامتی" rounded size="md" variant="filled" />
+        <SButton
+          :icon="HeartSVG"
+          :trailing-icon="HeartSVG"
+          label="سلامتی"
+          rounded
+          size="md"
+          variant="filled"
+        />
+        <SButton :trailing-icon="HeartSVG" label="سلامتی" rounded size="md" variant="filled" />
+        <SButton label="سلامتی" rounded size="md" variant="filled" />
+        <SButton :icon="HeartSVG" rounded size="md" variant="filled" />
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <SButton :icon="HeartSVG" label="سلامتی" rounded size="lg" variant="filled" />
+        <SButton
+          :icon="HeartSVG"
+          :trailing-icon="HeartSVG"
+          label="سلامتی"
+          rounded
+          size="lg"
+          variant="filled"
+        />
+        <SButton :trailing-icon="HeartSVG" label="سلامتی" rounded size="lg" variant="filled" />
+        <SButton label="سلامتی" rounded size="lg" variant="filled" />
+        <SButton :icon="HeartSVG" rounded size="lg" variant="filled" />
+      </div>
+    </div>
     <div class="flex flex-col gap-4">
       <div class="flex flex-wrap gap-4">
-        <SButton :icon="HeartSVG" color="primary" label="سلامتی" size="sm" variant="filled" />
+        <SButton :icon="HeartSVG" label="سلامتی" size="sm" variant="filled" />
         <SButton
+          disabled
           :icon="HeartSVG"
           :trailing-icon="HeartSVG"
           color="primary"
@@ -680,6 +765,7 @@ import SModal from '@/components/SModal.vue'
 import SDropdown from '@/components/SDropdown.vue'
 import SRating from '@/components/SRating.vue'
 import STextarea from '@/components/STextarea.vue'
+import SCarousel from '@/components/SCarousel.vue'
 
 const dropdownRef = useTemplateRef<InstanceType<typeof SDropdown>>('dropdownRef')
 

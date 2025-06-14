@@ -16,3 +16,5 @@
 html {
   overflow-y: scroll;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));

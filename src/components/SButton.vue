@@ -1,7 +1,7 @@
 <template>
   <button
-    :class="[{ '!rounded-full': rounded || iconOnly }, sizeClass, _class[variant][color]]"
-    class="rounded-sm font-medium transition cursor-pointer flex items-center justify-center duration-300 disabled:pointer-events-none w-fit focus-visible:outline-2 outline-primary outline-offset-1"
+    :class="[{ '!rounded-full': rounded || iconOnly, dark }, sizeClass, _class[variant][color]]"
+    class="rounded-sm font-medium transition cursor-pointer flex items-center justify-center duration-300 disabled:cursor-auto w-fit focus-visible:outline-2 outline-primary outline-offset-1"
   >
     <STooltip v-if="tooltip" :label="tooltip" />
     <component v-if="iconOnly" :is="icon" />
@@ -26,6 +26,7 @@ const {
   size = 'md',
   label,
   icon,
+  dark = false,
 } = defineProps<{
   label?: string
   variant?: 'filled' | 'outlined' | 'inlined'
@@ -35,6 +36,7 @@ const {
   icon?: Component
   size?: 'sm' | 'md' | 'lg'
   tooltip?: string
+  dark?: boolean
 }>()
 
 const sizeClass = computed(() => {
@@ -50,7 +52,7 @@ const iconOnly = computed(() => !label && icon)
 const _class = {
   filled: {
     default:
-      'bg-black/56 hover:bg-black/48 text-white active:bg-black/64 disabled:bg-black/12 disabled:text-black/24',
+      'bg-black/56 hover:bg-black/48 text-white active:bg-black/64 disabled:bg-black/12 disabled:text-black/24 dark:bg-black-33 dark:hover:bg-black-12 dark:text-black-87 dark:active:bg-black-40 dark:disabled:bg-black-82 dark:disabled:text-black-70',
     primary:
       'bg-primary hover:bg-primary-400 text-white active:bg-primary-600 disabled:bg-primary/12 disabled:text-black/32',
     warning:
