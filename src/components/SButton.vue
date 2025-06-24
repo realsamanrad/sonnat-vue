@@ -52,7 +52,7 @@ const iconOnly = computed(() => !label && icon)
 const _class = {
   filled: {
     default:
-      'bg-black/56 hover:bg-black/48 text-white active:bg-black/64 disabled:bg-black/12 disabled:text-black/24 dark:bg-black-33 dark:hover:bg-black-12 dark:text-black-87 dark:active:bg-black-40 dark:disabled:bg-black-82 dark:disabled:text-black-70',
+      'bg-black/56 hover:bg-black/48 text-white active:bg-black/64 disabled:bg-black/12 disabled:text-black/24 dark:bg-gray-33 dark:hover:bg-gray-12 dark:text-gray-87 dark:active:bg-gray-40 dark:disabled:bg-gray-82 dark:disabled:text-gray-70',
     primary:
       'bg-primary hover:bg-primary-400 text-white active:bg-primary-600 disabled:bg-primary/12 disabled:text-black/32',
     warning:

@@ -7,12 +7,12 @@
       :aria-expanded="open"
       :aria-invalid="error ? true : undefined"
       :class="{
-        'text-black-87': model?.length,
+        'text-gray-87': model?.length,
         '!rounded-full': rounded,
       }"
       :tabindex="disabled ? -1 : 0"
       aria-haspopup="listbox"
-      class="flex items-center justify-between rounded-sm border border-black-24 cursor-pointer hover:border-black-48 transition duration-240 text-black-32 focus-visible:ring focus-visible:border-primary focus-visible:ring-primary focus-visible:outline-0 focus-visible:ring-inset aria-disabled:pointer-events-none aria-disabled:border-black-12 group aria-disabled:text-black-32 aria-invalid:border-error group"
+      class="flex items-center justify-between rounded-sm border border-gray-24 cursor-pointer hover:border-gray-48 transition duration-240 text-gray-32 focus-visible:ring focus-visible:border-primary focus-visible:ring-primary focus-visible:outline-0 focus-visible:ring-inset aria-disabled:pointer-events-none aria-disabled:border-gray-12 group aria-disabled:text-gray-32 aria-invalid:border-error group"
       role="button"
       @click.self="open = !open"
       @keydown.enter.space.prevent="open = !open"
@@ -37,24 +37,24 @@
       </template>
       <div class="flex items-center group-aria-invalid:[&>*]:text-error pointer-events-none">
         <slot name="append">
-          <span v-if="appendText" class="text-black-32" v-text="appendText" />
+          <span v-if="appendText" class="text-gray-32" v-text="appendText" />
         </slot>
         <ChevronDownSVG
           :class="{
             'rotate-180': open,
           }"
-          class="text-black-32 transition-transform group-aria-disabled:text-black-12"
+          class="text-gray-32 transition-transform group-aria-disabled:text-gray-12"
         />
       </div>
     </div>
-    <small v-if="helperText" class="text-black-56 px-2 mt-1" v-text="helperText" />
+    <small v-if="helperText" class="text-gray-56 px-2 mt-1" v-text="helperText" />
     <Transition name="fade">
       <div
         v-show="open"
         :id="dropdownId"
         ref="floating"
         :style="floatingStyles"
-        class="bg-white rounded-sm z-20 text-black-56 overflow-hidden shadow-[0_1px_6px_rgba(0,0,0,0.04),0_-8px_32px_rgba(0,0,0,0.08),0_16px_24px_rgba(0,0,0,0.04)]"
+        class="bg-white rounded-sm z-20 text-gray-56 overflow-hidden shadow-[0_1px_6px_rgba(0,0,0,0.04),0_-8px_32px_rgba(0,0,0,0.08),0_16px_24px_rgba(0,0,0,0.04)]"
         role="listbox"
         @keyup.esc="open = false"
       >
@@ -79,7 +79,7 @@
             :data-index="i"
             :data-value="option.value"
             :tabindex="option.disabled ? -1 : 0"
-            class="w-full min-h-8 cursor-pointer hover:bg-black-4 aria-disabled:pointer-events-none aria-disabled:text-black-24 flex items-center px-4 shrink-0 outline-0 focus-visible:bg-black-4"
+            class="w-full min-h-8 cursor-pointer hover:bg-gray-4 aria-disabled:pointer-events-none aria-disabled:text-gray-24 flex items-center px-4 shrink-0 outline-0 focus-visible:bg-gray-4"
             role="option"
             @click="onOptionClick(option.value)"
             @keyup.enter="onOptionClick(option.value)"

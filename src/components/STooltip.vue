@@ -4,7 +4,7 @@
       v-show="open"
       ref="floatingRef"
       :style="floatingStyles"
-      class="bg-black-77 text-white px-3 py-2 rounded-sm text-xs z-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.12)]"
+      class="bg-gray-77 text-white px-3 py-2 rounded-sm text-xs z-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.12)]"
     >
       <span
         v-if="tailed"
@@ -20,7 +20,7 @@
           top: middlewareData.arrow?.y != null ? `${middlewareData.arrow.y}px` : '',
           [arrowPosition]: '-6px',
         }"
-        class="size-3 absolute rotate-45 bg-black-77"
+        class="size-3 absolute rotate-45 bg-gray-77"
       />
       <slot>{{ label }}</slot>
     </div>

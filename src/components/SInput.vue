@@ -3,7 +3,7 @@
     <label
       v-if="!floatLabel && label"
       :for="inputId"
-      class="text-sm font-medium text-black-64 mb-2 block"
+      class="text-sm font-medium text-gray-64 mb-2 block"
     >
       {{ label }}
       <span v-if="required" class="text-error">*</span>
@@ -14,10 +14,10 @@
         _class[variant],
         {
           '!rounded-full': rounded,
-          'bg-black-4': readonly && !floatLabel,
+          'bg-gray-4': readonly && !floatLabel,
         },
       ]"
-      class="rounded-sm flex items-center transition duration-240 focus-within:ring focus-within:ring-primary focus-within:ring-inset has-disabled:pointer-events-none cursor-text relative has-[input:read-only]:pointer-events-none text-black-32 aria-[invalid]:border-error aria-[invalid]:focus-within:ring-error aria-[invalid]:hover:border-error aria-[invalid]:text-error group peer"
+      class="rounded-sm flex items-center transition duration-240 focus-within:ring focus-within:ring-primary focus-within:ring-inset has-disabled:pointer-events-none cursor-text relative has-[input:read-only]:pointer-events-none text-gray-32 aria-[invalid]:border-error aria-[invalid]:focus-within:ring-error aria-[invalid]:hover:border-error aria-[invalid]:text-error group peer"
       @click="inputRef?.focus()"
     >
       <component v-if="prependIcon" :is="prependIcon" class="shrink-0 z-10" />
@@ -32,13 +32,13 @@
         :readonly
         :required
         :type="showPassword ? 'text' : type"
-        class="peer outline-none size-full mr-1 transition placeholder-black-32 text-black-87"
+        class="peer outline-none size-full mr-1 transition placeholder-gray-32 text-gray-87"
         @change="showError = false"
       />
       <label
         :for="inputId"
         v-if="floatLabel"
-        class="absolute peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-1 peer-placeholder-shown:top-1/2 -translate-y-1/2 top-0 transition-all pointer-events-none peer-placeholder-shown:text-black-32 peer-[:not(:placeholder-shown)]:text-black-64 peer-placeholder-shown:[&>span]:text-error-300 group-aria-[invalid]:peer-[:not(:placeholder-shown)]:text-error"
+        class="absolute peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-1 peer-placeholder-shown:top-1/2 -translate-y-1/2 top-0 transition-all pointer-events-none peer-placeholder-shown:text-gray-32 peer-[:not(:placeholder-shown)]:text-gray-64 peer-placeholder-shown:[&>span]:text-error-300 group-aria-[invalid]:peer-[:not(:placeholder-shown)]:text-error"
       >
         {{ label }}
         <span v-if="required" class="text-error"> * </span>
@@ -51,7 +51,7 @@
           v-if="type === 'password'"
           :class="{ 'text-primary': showPassword }"
           :is="showPassword ? EyeSVG : EyeCrossSVG"
-          class="cursor-pointer hover:text-black-48 transition duration-240"
+          class="cursor-pointer hover:text-gray-48 transition duration-240"
           role="button"
           @click="showPassword = !showPassword"
         />
@@ -65,11 +65,11 @@
       <component
         v-if="helperIcon || showError"
         :is="showError ? InfoCircleSVG : helperIcon"
-        class="text-black-32 ml-1"
+        class="text-gray-32 ml-1"
       />
       <small
         v-if="helperText || showError"
-        class="text-black-56"
+        class="text-gray-56"
         v-text="showError ? error : helperText"
       />
     </p>
@@ -130,8 +130,8 @@ const sizeClass = computed(() => {
 })
 
 const _class = {
-  filled: 'bg-black-4 not-focus-within:hover:bg-black-8 focus-within:ring-2',
+  filled: 'bg-gray-4 not-focus-within:hover:bg-gray-8 focus-within:ring-2',
   outlined:
-    'border border-black-24 not-focus-within:hover:border-black-48 focus-within:border-primary has-disabled:border-black-12 has-disabled:text-black-12 [&>input]:disabled:text-black-32',
+    'border border-gray-24 not-focus-within:hover:border-gray-48 focus-within:border-primary has-disabled:border-gray-12 has-disabled:text-gray-12 [&>input]:disabled:text-gray-32',
 }
 </script>

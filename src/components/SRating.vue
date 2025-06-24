@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-flex text-black-24" dir="ltr">
+  <div class="inline-flex text-gray-24" dir="ltr">
     <StarIcon
       v-for="n of 5"
       :key="n"
@@ -36,7 +36,7 @@ function starClass(n: number) {
   }
   if (hoverStar.value <= model.value) {
     if (n > hoverStar.value && n <= model.value) {
-      return '!text-black-24'
+      return '!text-gray-24'
     }
   }
   if (n > model.value && n <= hoverStar.value) {
