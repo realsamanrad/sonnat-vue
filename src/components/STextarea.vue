@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useId, defineModel, computed, type Component, ref } from 'vue'
+import { useId, computed, type Component, ref } from 'vue'
 
 const inputId = 'textarea-' + useId()
 const model = defineModel<string>({ default: '' })

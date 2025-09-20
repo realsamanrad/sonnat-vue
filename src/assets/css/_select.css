@@ -1,5 +1,10 @@
 @utility s-select-sm {
-  & > div:first-child {
+
+  label {
+    @apply text-sm;
+  }
+
+  div[role="button"] {
     @apply h-6 text-xs px-2;
 
     & > div {
@@ -11,7 +16,7 @@
     }
   }
 
-  & > div:last-child ul {
+  div[role="listbox"] ul {
     @apply text-xs;
 
     li {
@@ -23,7 +28,12 @@
 }
 
 @utility s-select-md {
-  & > div:first-child {
+
+  label {
+    @apply text-sm;
+  }
+
+  div[role="button"] {
     @apply h-8 text-xs px-2;
 
     & > div {
@@ -35,7 +45,7 @@
     }
   }
 
-  & > div:last-child ul {
+  div[role="listbox"] ul {
     @apply text-xs;
 
     li {
@@ -47,7 +57,12 @@
 }
 
 @utility s-select-lg {
-  & > div:first-child {
+
+  label {
+    @apply text-base;
+  }
+
+  div[role="button"] {
     @apply min-h-10 text-base px-4;
 
     & > div {
@@ -59,7 +74,7 @@
     }
   }
 
-  & > div:last-child ul {
+  div[role="listbox"] ul {
     @apply text-sm;
 
     li {

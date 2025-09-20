@@ -104,6 +104,7 @@
           :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
+          label="انتخاب"
           multiple
           searchable
           size="sm"
@@ -113,6 +114,7 @@
           :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
+          label="انتخاب"
           multiple
           searchable
           size="md"
@@ -122,6 +124,7 @@
           :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
+          label="انتخاب"
           multiple
           searchable
           size="lg"
@@ -133,6 +136,7 @@
           :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
+          label="انتخاب"
           multiple
           rounded
           searchable
@@ -143,6 +147,7 @@
           :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
+          label="انتخاب"
           multiple
           rounded
           searchable
@@ -153,6 +158,7 @@
           :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
+          label="انتخاب"
           multiple
           rounded
           searchable
@@ -165,6 +171,7 @@
           :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
+          label="انتخاب"
           searchable
           size="sm"
         />
@@ -173,6 +180,7 @@
           :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
+          label="انتخاب"
           searchable
           size="md"
         />
@@ -181,6 +189,7 @@
           :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
+          label="انتخاب"
           searchable
           size="lg"
         />
@@ -191,6 +200,7 @@
           :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
+          label="انتخاب"
           rounded
           searchable
           size="sm"
@@ -200,6 +210,7 @@
           :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
+          label="انتخاب"
           rounded
           searchable
           size="md"
@@ -209,6 +220,7 @@
           :options
           append-text="پسوند"
           helper-text="این یک متن راهنما است"
+          label="انتخاب"
           rounded
           searchable
           size="lg"
@@ -224,9 +236,9 @@
       <div class="flex flex-wrap gap-4">
         <SButton :icon="HeartSVG" label="سلامتی" size="sm" variant="filled" />
         <SButton
-          disabled
           :icon="HeartSVG"
           :trailing-icon="HeartSVG"
+          disabled
           label="سلامتی"
           size="sm"
           variant="filled"
@@ -309,9 +321,9 @@
       <div class="flex flex-wrap gap-4">
         <SButton :icon="HeartSVG" label="سلامتی" size="sm" variant="outlined" />
         <SButton
-          disabled
           :icon="HeartSVG"
           :trailing-icon="HeartSVG"
+          disabled
           label="سلامتی"
           size="sm"
           variant="outlined"
@@ -394,10 +406,10 @@
       <div class="flex flex-wrap gap-4">
         <SButton :icon="HeartSVG" label="سلامتی" size="sm" variant="filled" />
         <SButton
-          disabled
           :icon="HeartSVG"
           :trailing-icon="HeartSVG"
           color="primary"
+          disabled
           label="سلامتی"
           size="sm"
           variant="filled"

@@ -1,5 +1,6 @@
 <template>
-  <div :class="sizeClass" class="w-full">
+  <div :class="sizeClass" class="w-full flex flex-col">
+    <label v-if="label" :for="dropdownId" class="font-medium text-black-87 mb-2" v-text="label" />
     <div
       ref="select"
       :aria-controls="dropdownId"
@@ -137,6 +138,7 @@ const {
   searchable?: boolean
   multiple?: boolean
   options: Option[]
+  label?: string
 }>()
 
 const open = ref(false)
