@@ -8,7 +8,7 @@
       :aria-expanded="open"
       :aria-invalid="error ? true : undefined"
       :class="{
-        'text-gray-87': model?.length,
+        '!text-gray-87': model?.length,
         '!rounded-full': rounded,
       }"
       :tabindex="disabled ? -1 : 0"
