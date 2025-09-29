@@ -850,7 +850,7 @@ import SButton from '@/components/SButton.vue'
 import SBadge from '@/components/SBadge.vue'
 import STag from '@/components/STag.vue'
 import SChip from '@/components/SChip.vue'
-import HeartSVG from '@/assets/icons/heart.svg?component'
+import HeartSVG from '@/assets/icons/heart.svg'
 import ChevronDownSVG from '@/assets/icons/chevron-down.svg'
 
 import { ref, useTemplateRef } from 'vue'
@@ -864,7 +864,6 @@ import SModal from '@/components/SModal.vue'
 import SDropdown from '@/components/SDropdown.vue'
 import SRating from '@/components/SRating.vue'
 import STextarea from '@/components/STextarea.vue'
-import SCarousel from '@/components/SCarousel.vue'
 
 const dropdownRef = useTemplateRef<InstanceType<typeof SDropdown>>('dropdownRef')
 

@@ -70,11 +70,13 @@ const {
 })
 
 const arrowPosition = computed(() => {
-  return {
-    top: 'bottom',
-    right: 'left',
-    bottom: 'top',
-    left: 'right',
-  }[actualPlacement.value.split('-')[0]] as string
+  return (
+    {
+      top: 'bottom',
+      right: 'left',
+      bottom: 'top',
+      left: 'right',
+    }[actualPlacement.value.split('-')[0] ?? 'top'] ?? 'bottom'
+  )
 })
 </script>

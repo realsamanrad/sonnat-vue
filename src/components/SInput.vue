@@ -20,24 +20,26 @@
       class="rounded-sm flex items-center transition duration-240 focus-within:ring focus-within:ring-primary focus-within:ring-inset has-disabled:pointer-events-none cursor-text relative has-[input:read-only]:pointer-events-none text-gray-32 aria-[invalid]:border-error aria-[invalid]:focus-within:ring-error aria-[invalid]:hover:border-error aria-[invalid]:text-error group peer"
       @click="inputRef?.focus()"
     >
-      <component v-if="prependIcon" :is="prependIcon" class="shrink-0 z-10" />
+      <component :is="prependIcon" v-if="prependIcon" class="shrink-0 z-10" />
       <input
+        :id="inputId"
         ref="input"
         v-model.trim="model"
         :class="{ 'placeholder-transparent': floatLabel }"
         :disabled
         :name
-        :id="inputId"
         :placeholder
         :readonly
         :required
         :type="showPassword ? 'text' : type"
         class="peer outline-none size-full mr-1 transition placeholder-gray-32 text-gray-87"
-        @change="showError = false"
+        @blur="emit('blur')"
+        @change="handleChange"
+        @focus="emit('focus')"
       />
       <label
-        :for="inputId"
         v-if="floatLabel"
+        :for="inputId"
         class="absolute peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-1 peer-placeholder-shown:top-1/2 -translate-y-1/2 top-0 transition-all pointer-events-none peer-placeholder-shown:text-gray-32 peer-[:not(:placeholder-shown)]:text-gray-64 peer-placeholder-shown:[&>span]:text-error-300 group-aria-[invalid]:peer-[:not(:placeholder-shown)]:text-error"
       >
         {{ label }}
@@ -48,14 +50,14 @@
           <span class="text-nowrap" v-text="appendText" />
         </slot>
         <component
+          :is="showPassword ? EyeSVG : EyeCrossSVG"
           v-if="type === 'password'"
           :class="{ 'text-primary': showPassword }"
-          :is="showPassword ? EyeSVG : EyeCrossSVG"
           class="cursor-pointer hover:text-gray-48 transition duration-240"
           role="button"
           @click="showPassword = !showPassword"
         />
-        <component v-else-if="appendIcon" :is="appendIcon" />
+        <component :is="appendIcon" v-else-if="appendIcon" />
       </div>
     </div>
     <p
@@ -63,8 +65,8 @@
       class="flex items-center mt-1 px-2 peer-aria-[invalid]:[&>*]:text-error"
     >
       <component
-        v-if="helperIcon || showError"
         :is="showError ? InfoCircleSVG : helperIcon"
+        v-if="helperIcon || showError"
         class="text-gray-32 ml-1"
       />
       <small
@@ -82,11 +84,6 @@ import EyeSVG from '@/assets/icons/eye.svg'
 import EyeCrossSVG from '@/assets/icons/eye-cross.svg'
 import InfoCircleSVG from '@/assets/icons/info-circle.svg'
 
-const inputRef = useTemplateRef<HTMLInputElement>('input')
-
-const inputId = 'input-' + useId()
-
-const model = defineModel<string>({ default: '' })
 const {
   disabled = false,
   variant = 'outlined',
@@ -117,9 +114,20 @@ const {
   error?: string
 }>()
 
-const showPassword = ref(false)
+const model = defineModel<string>({ default: '' })
 
+const inputRef = useTemplateRef<HTMLInputElement>('input')
+const inputId = 'input-' + useId()
+const showPassword = ref(false)
 const showError = ref(!!error)
+
+const emit = defineEmits(['focus', 'blur', 'change'])
+
+const _class = {
+  filled: 'bg-gray-4 not-focus-within:hover:bg-gray-8 focus-within:ring-2',
+  outlined:
+    'border border-gray-24 not-focus-within:hover:border-gray-48 focus-within:border-primary has-disabled:border-gray-12 has-disabled:text-gray-12 [&>input]:disabled:text-gray-32',
+}
 
 const sizeClass = computed(() => {
   return {
@@ -129,9 +137,8 @@ const sizeClass = computed(() => {
   }[size]
 })
 
-const _class = {
-  filled: 'bg-gray-4 not-focus-within:hover:bg-gray-8 focus-within:ring-2',
-  outlined:
-    'border border-gray-24 not-focus-within:hover:border-gray-48 focus-within:border-primary has-disabled:border-gray-12 has-disabled:text-gray-12 [&>input]:disabled:text-gray-32',
+function handleChange() {
+  showError.value = false
+  emit('change')
 }
 </script>

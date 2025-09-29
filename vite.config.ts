@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 // import vueDevTools from 'vite-plugin-vue-devtools'
 import { resolve } from 'path'
 import { svg4VuePlugin } from 'vite-plugin-svg4vue'
-// import dts from 'vite-plugin-dts'
+import dts from 'vite-plugin-dts'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -14,7 +14,11 @@ export default defineConfig({
     // vueDevTools(),
     tailwindcss(),
     svg4VuePlugin({ defaultExport: 'component' }),
-    // dts(),
+    dts({
+      rollupTypes: true,
+      tsconfigPath: './tsconfig.app.json',
+      // processor: 'vue',
+    }),
   ],
   resolve: {
     alias: {
