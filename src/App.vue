@@ -1,5 +1,6 @@
 <template>
   <div class="mx-10 mt-10 flex flex-col gap-6">
+    <SBreadCrumb :items="breadcrumbs" />
     <div class="flex gap-4 flex-col">
       <div class="flex gap-4">
         <STextarea
@@ -864,6 +865,15 @@ import SModal from '@/components/SModal.vue'
 import SDropdown from '@/components/SDropdown.vue'
 import SRating from '@/components/SRating.vue'
 import STextarea from '@/components/STextarea.vue'
+import { SBreadCrumb } from '@/components'
+
+const breadcrumbs = ref([
+  { text: 'خانه', href: '#' },
+  { text: 'فروشگاه', href: '#' },
+  { text: 'موبایل', href: '#' },
+  { text: 'سامسونگ', href: '#' },
+  { text: 'گلکسی S20 Ultra' },
+])
 
 const dropdownRef = useTemplateRef<InstanceType<typeof SDropdown>>('dropdownRef')
 

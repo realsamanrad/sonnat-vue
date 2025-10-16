@@ -1,6 +1,6 @@
 {
   "name": "sonnat-vue",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Vue component library using Sonnat Design System to build faster, elegant, and accessible web applications",
   "type": "module",
   "scripts": {
@@ -44,15 +44,14 @@
     "vite-plugin-dts": "^4.5.4",
     "vite-plugin-vue-devtools": "^8.0.2",
     "vue-tsc": "^3.1.0",
-    "vite-plugin-svg4vue": "^4.5.0"
+    "vite-plugin-svg4vue": "^4.5.0",
+    "ajv": "^8.17.1"
   },
   "peerDependencies": {
     "@floating-ui/vue": "^1.1.6",
     "@vueuse/core": "^13.2.0",
     "@vueuse/motion": "^3.0.3",
-    "vue": "^3.5.22",
-    "ajv": "^8.17.1",
-    "@vue/language-core": "^3.1.0"
+    "vue": "^3.5.22"
   },
   "keywords": [
     "vue",
