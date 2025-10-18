@@ -1,5 +1,26 @@
 <template>
   <div class="mx-10 mt-10 flex flex-col gap-6">
+    <form>
+      <SInput
+        v-model="text"
+        :append-icon="HeartSVG"
+        :helper-icon="HeartSVG"
+        :prepend-icon="HeartSVG"
+        append-text="تستی است"
+        class=""
+        clearable
+        error="لطفا به صورت صحیح وارد کنید."
+        float-label
+        helper-text="این یک متن راهنما است"
+        label="نام خانوادگی"
+        name="test2"
+        placeholder="نام خانوادگی"
+        required
+        rounded
+        size="lg"
+        variant="outlined"
+      />
+    </form>
     <SBreadCrumb :items="breadcrumbs" />
     <div class="flex gap-4 flex-col">
       <div class="flex gap-4">
@@ -589,6 +610,7 @@
         :prepend-icon="HeartSVG"
         append-text="تستی است"
         class=""
+        clearable
         error="لطفا به صورت صحیح وارد کنید."
         float-label
         helper-text="این یک متن راهنما است"

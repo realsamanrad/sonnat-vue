@@ -25,6 +25,7 @@
         :id="inputId"
         ref="input"
         v-model.trim="model"
+        :autocomplete="autocomplete === true ? 'on' : autocomplete === false ? 'off' : autocomplete"
         :class="{ 'placeholder-transparent': floatLabel }"
         :disabled
         :name
@@ -57,6 +58,17 @@
           role="button"
           @click="showPassword = !showPassword"
         />
+        <SButton
+          v-else-if="clearable && model.length"
+          :icon="CloseSVG"
+          aria-label="حذف کردن"
+          class="!size-5 [&_svg]:!size-5"
+          size="sm"
+          tabindex="0"
+          type="button"
+          variant="inlined"
+          @click.stop="clear"
+        />
         <component :is="appendIcon" v-else-if="appendIcon" />
       </div>
     </div>
@@ -83,6 +95,8 @@ import { type Component, computed, ref, useId, useTemplateRef } from 'vue'
 import EyeSVG from '@/assets/icons/eye.svg'
 import EyeCrossSVG from '@/assets/icons/eye-cross.svg'
 import InfoCircleSVG from '@/assets/icons/info-circle.svg'
+import CloseSVG from '@/assets/icons/close.svg'
+import SButton from '@/components/SButton.vue'
 
 const {
   disabled = false,
@@ -94,6 +108,8 @@ const {
   type = 'text',
   floatLabel = false,
   error = undefined,
+  clearable = false,
+  autocomplete = true,
 } = defineProps<{
   placeholder?: string
   disabled?: boolean
@@ -112,6 +128,8 @@ const {
   floatLabel?: boolean
   type?: 'text' | 'number' | 'email' | 'password'
   error?: string
+  clearable?: boolean
+  autocomplete?: boolean | string
 }>()
 
 const model = defineModel<string>({ default: '' })
@@ -121,7 +139,7 @@ const inputId = 'input-' + useId()
 const showPassword = ref(false)
 const showError = ref(!!error)
 
-const emit = defineEmits(['focus', 'blur', 'change'])
+const emit = defineEmits(['focus', 'blur', 'change', 'clear'])
 
 const _class = {
   filled: 'bg-gray-4 not-focus-within:hover:bg-gray-8 focus-within:ring-2',
@@ -137,8 +155,19 @@ const sizeClass = computed(() => {
   }[size]
 })
 
+function clear() {
+  model.value = ''
+  emit('clear')
+}
+
 function handleChange() {
   showError.value = false
   emit('change')
 }
+
+defineExpose({
+  blur: () => {
+    inputRef.value?.blur()
+  },
+})
 </script>

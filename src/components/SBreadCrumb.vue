@@ -4,7 +4,7 @@
       <li
         v-for="(item, i) in items"
         :key="i"
-        class="inline-flex items-center gap-1 hover:text-gray-87 group peer peer-hover:[&_svg]:rotate-180"
+        class="inline-flex items-center gap-1 hover:text-gray-87 group peer peer-hover:[&_svg]:rotate-180 text-nowrap"
       >
         <component :is="linkComponent" v-if="item.href" class="" v-bind="getLinkProps(item.href)">
           {{ item.text }}
@@ -20,12 +20,12 @@
 </template>
 
 <script lang="ts" setup>
-import type { ConcreteComponent } from 'vue'
+import type { Component } from 'vue'
 import ChevronLeftIcon from '@/assets/icons/chevron-left.svg'
 
 const { linkComponent = 'a' } = defineProps<{
   items: { text: string; href?: string }[]
-  linkComponent?: string | ConcreteComponent
+  linkComponent?: string | Component
 }>()
 
 const getLinkProps = (href: string) => {

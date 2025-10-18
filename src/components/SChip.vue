@@ -12,10 +12,10 @@
     ]"
     :role="behavior !== 'removable' ? 'button' : undefined"
     :tabindex="disabled || behavior === 'removable' ? -1 : 0"
-    class="rounded-xs flex items-center justify-center w-fit select-none transition duration-300 focus-visible:outline-2 outline-offset-1 outline-primary"
+    class="rounded-xs flex items-center justify-center w-fit select-none transition duration-300 focus-visible:outline-2 outline-offset-1 outline-primary text-nowrap"
     @click="handleClick"
   >
-    <component v-if="icon" :is="icon" />
+    <component :is="icon" v-if="icon" />
     <slot>
       <span v-text="label" />
     </slot>
