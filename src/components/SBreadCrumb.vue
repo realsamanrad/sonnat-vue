@@ -12,7 +12,7 @@
         <span v-else aria-current="page" class="text-gray-32" v-text="item.text" />
         <ChevronLeftIcon
           v-if="i < items.length - 1"
-          class="size-4 transition-transform duration-400 group-hover:rotate-180"
+          class="size-4 transition-transform duration-360 group-hover:rotate-180"
         />
       </li>
     </ol>
