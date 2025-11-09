@@ -1,5 +1,9 @@
 <template>
   <div class="mx-10 mt-10 flex flex-col gap-6">
+    <div class="border p-2 w-fit mx-auto">
+      <span>hover me</span>
+      <STooltip v-show="showTooltip" label="این یک متن راهنما است" placement="top" visible />
+    </div>
     <form>
       <SInput
         v-model="text"
@@ -919,4 +923,6 @@ const options = [
   { label: '4 کیلوگرم', value: 'option8' },
   { label: '5 کیلوگرم', value: 'option9' },
 ]
+
+const showTooltip = ref(false)
 </script>

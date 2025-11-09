@@ -1,27 +1,17 @@
 <template>
   <Transition name="fade">
-    <div
-      v-show="open"
-      ref="floatingRef"
-      :style="floatingStyles"
-      class="bg-gray-77 text-white px-3 py-2 rounded-sm text-xs z-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.12)]"
-    >
-      <span
-        v-if="tailed"
-        ref="arrowRef"
-        :class="{
-          'rounded-br-xs': arrowPosition === 'bottom',
-          'rounded-tr-xs': arrowPosition === 'right',
-          'rounded-bl-xs': arrowPosition === 'left',
-          'rounded-tl-xs': arrowPosition === 'top',
-        }"
-        :style="{
+    <div v-show="open" ref="floatingRef" :style="floatingStyles"
+      class="bg-gray-77 text-white px-3 py-2 rounded-sm text-xs z-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.12)]">
+      <span v-if="tailed" ref="arrowRef" :class="{
+        'rounded-br-xs': arrowPosition === 'bottom',
+        'rounded-tr-xs': arrowPosition === 'right',
+        'rounded-bl-xs': arrowPosition === 'left',
+        'rounded-tl-xs': arrowPosition === 'top',
+      }" :style="{
           left: middlewareData.arrow?.x != null ? `${middlewareData.arrow.x}px` : '',
           top: middlewareData.arrow?.y != null ? `${middlewareData.arrow.y}px` : '',
           [arrowPosition]: '-6px',
-        }"
-        class="size-3 absolute rotate-45 bg-gray-77"
-      />
+        }" class="size-3 absolute rotate-45 bg-gray-77" />
       <slot>{{ label }}</slot>
     </div>
   </Transition>
@@ -40,10 +30,11 @@ import {
 } from '@floating-ui/vue'
 import { useParentElement, useElementHover, useFocusWithin } from '@vueuse/core'
 
-const { placement = 'top', tailed = true } = defineProps<{
+const { placement = 'top', tailed = true, visible = false } = defineProps<{
   label?: string
   placement?: UseFloatingOptions['placement']
   tailed?: boolean
+  visible?: boolean
 }>()
 
 const parentRef = useParentElement()
@@ -56,7 +47,7 @@ const isHovered = useElementHover(parentRef)
 const { focused } = useFocusWithin(parentRef)
 
 watchEffect(() => {
-  open.value = isHovered.value || focused.value
+  open.value = visible ?? (isHovered.value || focused.value)
 })
 
 const {
