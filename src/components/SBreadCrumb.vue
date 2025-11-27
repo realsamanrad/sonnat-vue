@@ -1,5 +1,5 @@
 <template>
-  <nav aria-label="Breadcrumb">
+  <nav aria-label="Breadcrumb" class="overflow-hidden">
     <ol class="flex gap-1 text-xs text-gray-56">
       <li
         v-for="(item, i) in items"

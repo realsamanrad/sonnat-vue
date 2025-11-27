@@ -2,7 +2,7 @@
   <div class="mx-10 mt-10 flex flex-col gap-6">
     <div class="border p-2 w-fit mx-auto">
       <span>hover me</span>
-      <STooltip v-show="showTooltip" label="این یک متن راهنما است" placement="top" visible />
+      <STooltip label="این یک متن راهنما است" />
     </div>
     <form>
       <SInput
